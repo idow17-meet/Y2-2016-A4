@@ -15,19 +15,17 @@ class Person(Base):
     gender = Column(String(30))
     nationality = Column(String(30))
     bio = Column(String(300))
-    rating = Column(Integer)
+    rating = Column(Float)
 
 
 class Event(Base):
     __tablename__ = 'event'
     id = Column(Integer, primary_key=True)
     title = Column(String(60))
-    date = Column(Date(60))
-    chef = Column(Integer, ForeignKey("person.id"))
-    attending = Column
-    nationality = Column(String(30))
-    bio = Column(String(300))
-    rating = Column(Integer)
+    date = Column(Date)
+    chef = Column((Integer), ForeignKey("person.id"))
+    attending = Column((Integer), ForeignKey("person.id"))
+    description = Column(String(300))
     
 #PLACE YOUR TABLE SETUP INFORMATION HERE
 
