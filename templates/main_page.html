@@ -2,15 +2,41 @@
 <html>
 <head>
   <title>
-    Title for this Page Goes Here
-  </title>
+	<h1>Our MEET Y2 project</h1>  </title>
   <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
   
   
 </head>
 
 <body>
+	<div>
+	<button type="button" name="profile" onclick="window.location.href='BROKEN-LINK-FOR-PROFILE-PAGE' ">Profile</button>
+	<button type="button" name="signout" onclick="window.location.href='BROKEN-LINK-FOR-Signing-Out' ">Sign out</button>
+	</div>
 
+	<br>
+	<br>
+	<br>
+	<br>
+
+
+	<form action="action_page.php">
+	<div>
+  		<select style="float: left">Dropdown
+    		<option>Events</option>
+    		<option>Food</option>
+    		<option>People</option>
+ 		</select>
+	</div>
+	<input type="search" name="search">
+  		<input type="submit" value="Search">
+  	</form>
+
+  	<br>
+  	<br>
+  	<br>
+
+  	<button type="button" name="create_event" onclick="window.location.href='BROKEN-LINK-FOR-CRETING-EVENTS' ">Create</button>
 
 </body>
 
