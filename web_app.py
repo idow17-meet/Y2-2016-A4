@@ -18,10 +18,18 @@ session = DBSession()
 #YOUR WEB APP CODE GOES HERE
 
 @app.route('/')
+def login():
+    return render_template('login_page.html')
+
+
+@app.route('/main')
 def main():
-    return render_template('main_page.html')
+	return render_template('main_page.html')
 
 
+@app.route('/create')
+def create():
+	return render_template('create_account.html')
 
 
 
