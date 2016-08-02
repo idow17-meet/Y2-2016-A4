@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String
+from sqlalchemy import Column, Date, Float, ForeignKey, Integer, String, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy import create_engine
@@ -23,9 +23,17 @@ class Event(Base):
     id = Column(Integer, primary_key=True)
     title = Column(String(60))
     date = Column(Date)
-    chef = Column((Integer), ForeignKey("person.id"))
-    attending = Column((Integer), ForeignKey("person.id"))
     description = Column(String(300))
+
+
+class Attendance(Base):
+    __tablename__ = 'attendance'
+    id = Column(Integer, primary_key=True)
+    person_id = Column(Integer, ForeignKey("person.id"))
+    person = relationship("Person")
+    event_id = Column(Integer, ForeignKey("event.id"))
+    event = relationship("Event")
+    chef_flag = Column(Boolean)
     
 #PLACE YOUR TABLE SETUP INFORMATION HERE
 
