@@ -14,6 +14,9 @@
 			width: 70%;
 			margin: auto;
 	}
+	.carousel-control.left, .carousel-control.right {
+		background-image: none;
+	}
 	body {
 		text-align: center;
 	}
@@ -24,7 +27,11 @@
 <body>
 	<div class="container">
 		<button type="button" name="profile" onclick="window.location.href='BROKEN-LINK-FOR-PROFILE-PAGE' ">Profile</button>
-		<button type="button" name="signout" onclick="window.location.href='BROKEN-LINK-FOR-Signing-Out' ">Sign out</button>
+		<a role="button" href="{{ url_for('login') }}" class="btn btn-info">Sign out</a>
+		<br>
+		<br>
+		<br>
+		<br>
 
 		<br>
 		<br>
