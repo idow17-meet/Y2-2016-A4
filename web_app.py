@@ -68,11 +68,16 @@ def create_account():
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
 	if request.method == 'GET':
-		return render_template('create_event.html')
+		currentyear = datetime.now().year
+		years = range(currentyear, currentyear + 101)
+		months = range(1, 13)
+		days = range(1, 32) 
+		return render_template('create_event.html' , years = years, months = months, days = days)
 	else:
+		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
 		event = Event(title = request.form['title'],
-			date = request.form['date'],
-			description = request.form['description'])
+					  date = event_date,
+				      description = request.form['description'])
 		dbsession.add(event)
 		dbsession.commit()
 		return redirect(url_for('event'))
