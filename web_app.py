@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 app = Flask(__name__)
+app.secret_key = 'i love potatoes'
 
 # SQLAlchemy stuff
 ### Add your tables here!
@@ -12,7 +13,7 @@ from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///project.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
-session = DBSession()
+dbsession = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
@@ -27,16 +28,23 @@ def login():
 		return render_template('login_page.html')
 	else:
 		# ADD LOGIN AND ALL THAT GOOD STUFF HERE!!!
-		user = session.query(Person).filter_by(username = request.form['username']).first()
+		user = dbsession.query(Person).filter_by(username = request.form['username']).first()
 		if user == None or user.password != request.form['password']: # If username doesn't exist or wrong password
 			return render_template('login_page.html', error=True)
 		else:
+			session['user_id'] = user.id
 			return redirect(url_for('main'))
+
+@app.route('/logout')
+def logout():
+	session.pop('user_id', None)
+	return redirect(url_for('login'))
 
 
 @app.route('/main')
 def main():
-	return render_template('main_page.html')
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
+	return render_template('main_page.html', user=user)
 
 
 @app.route('/create-account', methods = ['GET', 'POST'])
@@ -52,8 +60,8 @@ def create_account():
 					  nationality = request.form['nationality'],
 					  bio = request.form['bio'],
 					  rating = 5)
-		session.add(user)
-		session.commit()
+		dbsession.add(user)
+		dbsession.commit()
 		return redirect(url_for('login'))
 
 
@@ -65,25 +73,25 @@ def create_event():
 		event = Event(title = request.form['title'],
 			date = request.form['date'],
 			description = request.form['description'])
-		session.add(event)
-		session.commit()
+		dbsession.add(event)
+		dbsession.commit()
 		return redirect(url_for('event'))
 
 @app.route('/event/<int:event_id>') #Add and event id or smth
 def event(event_id):
-	event = session.query(Event).filter_by(id = event_id).first()
+	event = dbsession.query(Event).filter_by(id = event_id).first()
 	return render_template('event_page.html', event = event)
 
 
 @app.route('/profile/<int:user_id>')
 def profile(user_id):
-	user = session.query(Person).filter_by(id = user_id).first()
+	user = dbsession.query(Person).filter_by(id = user_id).first()
 	return render_template('profile_page.html', user = user)
 
 
 @app.route('/edit-profile/<int:user_id>', methods = ['GET', 'POST'])
 def edit_profile(user_id):
-	user = session.query(Person).filter_by(id = user_id).first()
+	user = dbsession.query(Person).filter_by(id = user_id).first()
 	if request.method == 'GET':
 		return render_template('edit_profile.html', user = user)
 	else:
@@ -101,7 +109,7 @@ def edit_profile(user_id):
 		user.nationality = new_nationality
 		user.bio = new_bio
 
-		session.commit()
+		dbsession.commit()
 		return redirect(url_for('profile', user_id = user_id))
 
 
