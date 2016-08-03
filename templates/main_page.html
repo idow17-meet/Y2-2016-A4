@@ -2,29 +2,16 @@
 <html lang="en">
 <head>
 	<title>Our MEET Y2 project</title>
-	<link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
+	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<style>
-	.carousel-inner > .item > img,
-	.carousel-inner > .item > a > img {
-			width: 70%;
-			margin: auto;
-	}
-	.carousel-control.left, .carousel-control.right {
-		background-image: none;
-	}
-	body {
-		text-align: center;
-	}
-	</style>
 	
 </head>
 
-<body>
+<body id="page-top" class="index">
 	<div class="container">
 		<a role="button" href="{{ url_for('profile', user_id=user.id) }}" class="btn btn-info">Profile</button>
 		<a role="button" href="{{ url_for('logout') }}" class="btn btn-info">Sign out</a>

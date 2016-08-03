@@ -35,6 +35,7 @@ def login():
 			session['user_id'] = user.id
 			return redirect(url_for('main'))
 
+
 @app.route('/logout')
 def logout():
 	session.pop('user_id', None)
@@ -89,9 +90,9 @@ def profile(user_id):
 	return render_template('profile_page.html', user = user)
 
 
-@app.route('/edit-profile/<int:user_id>', methods = ['GET', 'POST'])
-def edit_profile(user_id):
-	user = dbsession.query(Person).filter_by(id = user_id).first()
+@app.route('/edit-profile', methods = ['GET', 'POST'])
+def edit_profile():
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	if request.method == 'GET':
 		return render_template('edit_profile.html', user = user)
 	else:
@@ -110,7 +111,7 @@ def edit_profile(user_id):
 		user.bio = new_bio
 
 		dbsession.commit()
-		return redirect(url_for('profile', user_id = user_id))
+		return redirect(url_for('profile', user_id = user.id))
 
 
 
