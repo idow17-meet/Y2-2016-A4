@@ -10,16 +10,18 @@
 
 	<form action="{{ url_for('create_event') }}" method="post">
 		Event Name :
-		<input type="text" name="eventname" placeholder="Event Name">
+		<input type="text" name="title" placeholder="Event Name">
 		<br> 
 		Date :
-		<input type="text" name="date" placeholder="Date">
+		<input type="date" name="date" placeholder="Date">
 		<br>
-		What are you cooking? :
+  		What are you cooking? :
 		<input type="text" name="food">
 		<br>
 		Description :
 		<input type="text" name="description" placeholder="Explain more on what are you going to cook?">
+		<br>
+		<input type="submit" name="submit" value="Create Event">
 	</form>
 
 	<a href="{{ url_for('main') }}" role="button">Cancel</a>
