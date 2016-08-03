@@ -69,9 +69,10 @@ def create_event():
 		session.commit()
 		return redirect(url_for('event'))
 
-@app.route('/event') #Add and event id or smth
-def event():
-	return render_template('event_page.html')
+@app.route('/event/<int:event_id>') #Add and event id or smth
+def event(event_id):
+	event = session.query(Event).filter_by(id = event_id).first()
+	return render_template('event_page.html', event = event)
 
 
 @app.route('/profile/<int:user_id>')
