@@ -16,7 +16,7 @@ session = DBSession()
 antonio = Person(name = 'Antonio Delegrassi',
 				username = 'sexyantonio668',
 				password = 'mynameisantonio',
-				gender = 'identifies as a chair',
+				gender = 'Male',
 				nationality = 'Italian',
 				bio = 'I identify as a chair because why not',
 				rating = 4)

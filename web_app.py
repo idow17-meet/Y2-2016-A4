@@ -79,5 +79,31 @@ def profile(user_id):
 	user = session.query(Person).filter_by(id = user_id).first()
 	return render_template('profile_page.html', user = user)
 
+
+@app.route('/edit-profile/<int:user_id>', methods = ['GET', 'POST'])
+def edit_profile(user_id):
+	user = session.query(Person).filter_by(id = user_id).first()
+	if request.method == 'GET':
+		return render_template('edit_profile.html', user = user)
+	else:
+		new_name = request.form['fullname']
+		new_username = request.form['username']
+		new_password = request.form['password']
+		new_gender = request.form['gender']
+		new_nationality = request.form['nationality']
+		new_bio = request.form['bio']
+
+		user.name = new_name
+		user.username = new_username
+		user.password = new_password
+		user.gender = new_gender
+		user.nationality = new_nationality
+		user.bio = new_bio
+
+		session.commit()
+		return redirect(url_for('profile', user_id = user_id))
+
+
+
 if __name__ == '__main__':
 	app.run(debug=True)
