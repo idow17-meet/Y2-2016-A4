@@ -9,18 +9,47 @@
 		<h3>Create an Event</h3>
 
 	<form action="{{ url_for('create_event') }}" method="post">
-		Event Name :
-		<input type="text" name="title" placeholder="Event Name">
-		<br> 
-		Date :
-		<input type="date" name="date" placeholder="Date">
-		<br>
-  		What are you cooking? :
-		<input type="text" name="food">
-		<br>
-		Description :
-		<input type="text" name="description" placeholder="Explain more on what are you going to cook?">
-		<br>
+		<div class=form-group>
+			<label for="title">Event Name :</label>
+			<input type="text" name="title" placeholder="Event Name" id="title">
+			<br>
+		</div> 
+
+
+		<div class="form-group">
+			<select name="day" style="float: left; margin-right: 5px">
+				{% for day in days %}
+				<option value="{{ day }}">{{ day }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="month" style="float: left; margin-right: 5px">
+				{% for month in months %}
+				<option value="{{ month }}">{{ month }}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<select name="year">
+				{% for year in years %}
+				<option value="{{ year }}">{{ year }}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+
+
+
+
+
+		<!-- DATE SHOULD BE HERE -->
+		<div class="form-group">
+			<label for="des">Description :</label>
+			<textarea name="description" rows="5" placeholder="Explain more on what are you going to cook?"></textarea>
+			<br>
+		</div>
+
 		<input type="submit" name="submit" value="Create Event">
 	</form>
 
