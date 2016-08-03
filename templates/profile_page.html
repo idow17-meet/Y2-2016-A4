@@ -1,9 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+	<title>Our MEET Y2 project</title>
 </head>
 <body>
+<!-- The web app passes a user object to this page and then we use it in the following way: user.<attribute> -->
+<h1>{{ user.name }}</h1>
+<h3>{{ user.gender }}</h3>
+<h3>{{ user.nationality }}</h3>
+<p>{{ user.bio }}</p>
+{% for i in range(user.rating) %}
+<img src="star.png">
+{% endfor %}
 
+<br>
+<br>
+
+<a href="BROKEN LINK" role="button" class="btn btn-info">Edit</a>
 </body>
 </html>
