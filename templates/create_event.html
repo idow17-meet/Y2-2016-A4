@@ -9,30 +9,19 @@
 		<h3>Create an Event</h3>
 
 	<form action="{{ url_for('create_event') }}" method="post">
-		Full Name :
-		<input type="text" name="fullname" placeholder="Full Name">
+		Event Name :
+		<input type="text" name="eventname" placeholder="Event Name">
 		<br> 
-		User Name :
-		<input type="text" name="username" placeholder="Username">
+		Date :
+		<input type="text" name="date" placeholder="Date">
 		<br>
-		Password :
-		<input type="password" name="password" placeholder="Password">
-		<br>
-		Gender :
-		<input type="radio" name="gender" value="male">
-		<input type="radio" name="gender" value="female">
-		<input type="radio" name="gender" value="other">
-		<br>
-		Nationality :
-		<input type="text" name="nationality" placeholder="Nationality">
+		What are you cooking? :
+		<input type="text" name="food">
 		<br>
 		Description :
-		<input type="text" name="bio" placeholder="Tell users a bit about yourself">
-		<br>
-		<input type="submit" value="Sign Up">
-		<br>
+		<input type="text" name="description" placeholder="Explain more on what are you going to cook?">
 	</form>
 
-	<a href="{{ url_for('login') }}" role="button">Cancel</a>
+	<a href="{{ url_for('main') }}" role="button">Cancel</a>
 </body>
 </html>
