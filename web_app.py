@@ -70,7 +70,7 @@ def create_account():
 def create_event():
 	if request.method == 'GET':
 		currentyear = datetime.now().year
-		years = range(currentyear, currentyear + 101)
+		years = [currentyear, currentyear + 1]
 		months = range(1, 13)
 		days = range(1, 32) 
 		return render_template('create_event.html' , years = years, months = months, days = days)
