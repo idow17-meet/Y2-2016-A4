@@ -73,5 +73,11 @@ def create_event():
 def event():
 	return render_template('event_page.html')
 
+
+@app.route('/profile/<int:user_id>')
+def profile(user_id):
+	user = session.query(Person).filter_by(id = user_id).first()
+	return render_template('profile_page.html', user = user)
+
 if __name__ == '__main__':
 	app.run(debug=True)

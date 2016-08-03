@@ -10,7 +10,7 @@
 <h3>{{ user.nationality }}</h3>
 <p>{{ user.bio }}</p>
 {% for i in range(user.rating) %}
-<img src="star.png">
+<img src="{{ url_for('static', filename='star.png') }}" width="50px" height="47px">
 {% endfor %}
 
 <br>

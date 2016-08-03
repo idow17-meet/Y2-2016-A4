@@ -19,7 +19,7 @@ antonio = Person(name = 'Antonio Delegrassi',
 				gender = 'identifies as a chair',
 				nationality = 'Italian',
 				bio = 'I identify as a chair because why not',
-				rating = 4.5)
+				rating = 4)
 
 
 pizza_event = Event(title = 'Awesome Pizza Party',

@@ -15,7 +15,7 @@ class Person(Base):
 	gender = Column(String(30))
 	nationality = Column(String(30))
 	bio = Column(String(300))
-	rating = Column(Float)
+	rating = Column(Integer)
 
 
 class Event(Base):
