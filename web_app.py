@@ -27,7 +27,11 @@ def login():
 		return render_template('login_page.html')
 	else:
 		# ADD LOGIN AND ALL THAT GOOD STUFF HERE!!!
-		return redirect('main')
+		user = session.query(Person).filter_by(username = request.form['username']).first()
+		if user == None or user.password != request.form['password']: # If username doesn't exist or wrong password
+			return render_template('login_page.html', error=True)
+		else:
+			return redirect(url_for('main'))
 
 
 @app.route('/main')
@@ -50,12 +54,12 @@ def create_account():
 					  rating = 5)
 		session.add(user)
 		session.commit()
-		return redirect('login')
+		return redirect(url_for('login'))
 
 
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
-	return render_template('create-event.html')
+	return render_template('create_event.html')
 
 
 if __name__ == '__main__':
