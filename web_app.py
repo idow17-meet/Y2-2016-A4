@@ -17,7 +17,7 @@ dbsession = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
-
+from datetime import datetime
 # wget http://tinyurl.com/MEETpythonY2
 # source MEETpythonY2
 
@@ -69,11 +69,16 @@ def create_account():
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
 	if request.method == 'GET':
-		return render_template('create_event.html')
+		currentyear = datetime.now().year
+		years = range(currentyear, currentyear + 101)
+		months = range(1, 13)
+		days = range(1, 32) 
+		return render_template('create_event.html' , years = years, months = months, days = days)
 	else:
+		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
 		event = Event(title = request.form['title'],
-			date = request.form['date'],
-			description = request.form['description'])
+					  date = event_date,
+				      description = request.form['description'])
 		dbsession.add(event)
 		dbsession.commit()
 		return redirect(url_for('event'))
@@ -82,6 +87,24 @@ def create_event():
 def event(event_id):
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	return render_template('event_page.html', event = event)
+
+@app.route('/edit-event' , methods = ['GET','POST'])
+def event(event_id):
+	event = dbsession.query(Event).filter_by(id = event_id).first()
+	if request.method == 'GET':
+		return render_template('edit_event.html' , event = event)
+	else:
+		new_title = request.form['title']
+		new_date = request.form['date'] #CHANGE THIS TO WORK PROPERLY
+		new_desc = request.form['description']
+
+		event.name = new_title
+		event.date = new_date
+		event.description = new_desc
+
+		dbsession.commit()
+		return redirect(url_for('profile',event_id = event_id))
+
 
 
 @app.route('/profile/<int:user_id>')
