@@ -59,8 +59,19 @@ def create_account():
 
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
-	return render_template('create_event.html')
+	if request.method == 'GET':
+		return render_template('create_event.html')
+	else:
+		event = Event(title = request.form['title'],
+			date = request.form['date'],
+			description = request.form['description'])
+		session.add(event)
+		session.commit()
+		return redirect(url_for('event'))
 
+@app.route('/event') #Add and event id or smth
+def event():
+	return render_template('event_page.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)
