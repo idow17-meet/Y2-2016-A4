@@ -9,28 +9,40 @@
 	<h3>Create an account</h3>
 
 	<form action="{{ url_for('create') }}" method="post">
-		Full Name :
-		<input type="text" name="fullname" placeholder="Full Name">
+		<div class="form-group">
+			<label for="name">Full name:</label>
+			<input type="text" name="fullname" placeholder="Full Name" id="name">
+			<br>
+		</div>
+		<div class="form-group">
+			<label for="usr">Username:</label>
+			<input type="text" name="username" placeholder="Username" id="usr">
+			<br>
+		</div>
+		<div class="form-group">
+			<label for="pass">Password:</label>
+			<input type="password" name="password" placeholder="Password" id="pass">
+			<br>
+		</div>
+		Gender:
+		<label class="radio-inline"><input type="radio" name="gender" value="male" id="gend">Male</label>
+		<label class="radio-inline"><input type="radio" name="gender" value="female">Female</label>
+		<label class="radio-inline"><input type="radio" name="gender" value="other">Other</label>
 		<br>
-		User Name :
-		<input type="text" name="username" placeholder="Username">
-		<br>
-		Password :
-		<input type="password" name="password" placeholder="Password">
-		<br>
-		Gender :
-		<input type="radio" name="gender" value="male">
-		<input type="radio" name="gender" value="female">
-		<input type="radio" name="gender" value="other">
-		<br>
-		Nationality :
-		<input type="text" name="nationality" placeholder="Nationality">
-		<br>
-		Description :
-		<input type="text" name="bio" placeholder="Tell users a bit about yourself">
-		<br>
-		<input type="submit" value="Sign Up">
-		<br>
+		<div class="form-group">
+			<label for="nat">Nationality:</label>
+			<input type="text" name="nationality" placeholder="Nationality" id="nat">
+			<br>
+		</div>
+		<div class="form-group">
+			<label for="desc">Description:</label>
+			<input type="text" name="bio" placeholder="Tell users a bit about yourself" id="desc">
+			<br>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Sign Up">
+			<br>
+		</div>
 	</form>
 
 	<a href="{{ url_for('login') }}" role="button">Cancel</a>

@@ -35,15 +35,27 @@ def main():
 	return render_template('main_page.html')
 
 
-@app.route('/create', methods = ['GET', 'POST'])
-def create():
+@app.route('/create-account', methods = ['GET', 'POST'])
+def create_account():
 	if request.method == 'GET':
 		return render_template('create_account.html')
 	else:
 		# ADD CREATING ACCOUNT AND ALL THAT GOOD STUFF HERE!!!
+		user = Person(name = request.form['fullname'],
+					  username = request.form['username'],
+					  password = request.form['password'],
+					  gender = request.form['gender'],
+					  nationality = request.form['nationality'],
+					  bio = request.form['bio'],
+					  rating = 5)
+		session.add(user)
+		session.commit()
 		return redirect('login')
 
 
+@app.route('/create-event', methods = ['GET', 'POST'])
+def create_event():
+	return render_template('create-event.html')
 
 
 if __name__ == '__main__':
