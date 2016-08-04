@@ -29,8 +29,11 @@
 	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 
 	<style>
-	body {
+	#page-top{
 		background-image: url('{{ url_for('static', filename='img/Main_page_pic.jpg') }}');
+	}
+	#about {
+
 	}
 	</style>
 	
@@ -68,7 +71,7 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-	<div class="container">
+	<div class="container main">
 		<a role="button" href="{{ url_for('profile', user_id=user.id) }}" class="btn btn-info">Profile</button>
 		<a role="button" href="{{ url_for('logout') }}" class="btn btn-info">Sign out</a>
 		<br>
@@ -82,14 +85,22 @@
 		<br>
 
 
-		<form action="{{ url_for('results_page') }}">
-			<select name="searchtype">
-				<option value="Events">Events</option>
-				<option value="Food">Food</option>
-				<option value="People">People</option>
-			</select>
-			<input type="text" name="search">
-			<input type="submit" value="Search" class="btn btn-default">
+		<form action="{{ url_for('results_page') }}" class='form-group' role="form-horizontal">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-2" style="margin-right: 0px;">
+					<select name="searchtype" class="form-control">
+						<option value="Events">Events</option>
+						<option value="Food">Food</option>
+						<option value="People">People</option>
+					</select>
+				</div>
+				<div class="col-md-4" style="margin-left: 0px;">
+					<input type="text" name="search">
+					<input type="submit" value="Search" class="btn btn-default">
+				</div>
+				<div class="col-md-3"></div>
+			</div>
 		</form>
 
 			<br>
@@ -136,17 +147,19 @@
 			</a>
 		</div>
 	</div>
-
-	<div id="about" style="margin-top: 600px;">
-		<h2>About</h2>
-		<p>TEMP TITLE brings people together from other nationalities to learn and cook traditional food from each other.</p>
-		<h3>WHY TEMP TITLE?</h3>
-		<p>TEMP TITLE disrupts the tribalism between a lot of nationalities , by meeting people of different nationalities , and coming together cooking FOOD.</p><!-- ADD MORE DETAILS FFS BRO!-->
-	</div>
-
-
-
-
+</body>
+<body>
+	<header id="about" style="margin-top: 600px;">
+		<div class='row'>
+			<div class="col-md-2"><p></p></div>
+			<div class="col-md-8">
+				<h2>About</h2>
+				<p>TEMP TITLE brings people together from other nationalities to learn and cook traditional food from each other.</p>
+				<h3>WHY TEMP TITLE?</h3>
+				<p>TEMP TITLE disrupts the tribalism between a lot of nationalities , by meeting people of different nationalities , and coming together cooking FOOD.</p><!-- ADD MORE DETAILS FFS BRO!-->
+			</div>
+		</div>
+	</header>
 </body>
 
 
