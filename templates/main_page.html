@@ -88,16 +88,20 @@
 		<form action="{{ url_for('results_page') }}" class='form-group' role="form-horizontal">
 			<div class="row">
 				<div class="col-md-3"></div>
-				<div class="col-md-2" style="margin-right: 0px;">
+				<div class="col-md-2" style="margin-right: 0px; padding-right: 0px;">
 					<select name="searchtype" class="form-control">
 						<option value="Events">Events</option>
 						<option value="Food">Food</option>
 						<option value="People">People</option>
 					</select>
 				</div>
-				<div class="col-md-4" style="margin-left: 0px;">
-					<input type="text" name="search">
-					<input type="submit" value="Search" class="btn btn-default">
+				<div class="col-md-2" style="margin-left: 0px; padding-right: 0px;">
+					<div class="form-group">
+						<input type="text" name="search" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-1" style="padding-left: 0px;">
+					<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;">
 				</div>
 				<div class="col-md-3"></div>
 			</div>
