@@ -2,4 +2,4 @@ MEETpythonY2
 *.db
 *.pyc
 *.md
-*~
+*project.db
