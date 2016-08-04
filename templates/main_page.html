@@ -76,11 +76,11 @@
 		<br>
 
 
-		<form action="{{ url_for('main') }}">
-			<select>
-				<option>Events</option>
-				<option>Food</option>
-				<option>People</option>
+		<form action="{{ url_for('results_page') }}">
+			<select name="searchtype">
+				<option value="Events">Events</option>
+				<option value="Food">Food</option>
+				<option value="People">People</option>
 			</select>
 			<input type="text" name="search">
 			<input type="submit" value="Search" class="btn btn-default">

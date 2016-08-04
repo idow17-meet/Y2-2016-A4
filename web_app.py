@@ -8,7 +8,7 @@ app.secret_key = 'i love potatoes'
 # from database_setup import Base, Potato, Monkey
 from database_setup import Base, Person, Event, Attendance
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, or_
 from sqlalchemy.orm import sessionmaker
 engine = create_engine('sqlite:///project.db')
 Base.metadata.bind = engine
@@ -139,6 +139,19 @@ def edit_profile():
 		return redirect(url_for('profile', user_id = user.id))
 
 
+@app.route('/results')
+def results_page():
+	searchtype = request.args.get('searchtype')
+	search = request.args.get('search')
+	#search = search.lower()
+
+	if searchtype in ('Events', 'Food'):
+		results = dbsession.query(Event).filter(or_(Event.title.contains(search), Event.description.contains(search)))
+
+	elif searchtype == 'People':
+		results = dbsession.query(Person).filter(or_(Person.name.contains(search), Person.bio.contains(search)))
+
+	return render_template('results.html', type=searchtype, results = results)
 
 if __name__ == '__main__':
 	app.run(debug=True)
