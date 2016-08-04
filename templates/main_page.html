@@ -31,6 +31,37 @@
 </head>
 
 <body id="page-top" class="index">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="{{ url_for('main') }}">Main Menu</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden active">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="{{ url_for('profile', user_id=user.id) }}">Profile</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">About</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="{{ url_for('logout') }}">Sign Out</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
 	<div class="container">
 		<a role="button" href="{{ url_for('profile', user_id=user.id) }}" class="btn btn-info">Profile</button>
 		<a role="button" href="{{ url_for('logout') }}" class="btn btn-info">Sign out</a>
@@ -45,11 +76,11 @@
 		<br>
 
 
-		<form action="{{ url_for('results') }}">
-			<select>
-				<option>Events</option>
-				<option>Food</option>
-				<option>People</option>
+		<form action="{{ url_for('results_page') }}">
+			<select name="searchtype">
+				<option value="Events">Events</option>
+				<option value="Food">Food</option>
+				<option value="People">People</option>
 			</select>
 			<input type="text" name="search">
 			<input type="submit" value="Search" class="btn btn-default">
