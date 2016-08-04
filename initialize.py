@@ -32,7 +32,10 @@ loai = Person(name = 'Loai Qubti',
 
 pizza_event = Event(title = 'Awesome Pizza Party',
     				date = datetime(2016, 8, 10),
-    				description = 'Come learn how to make good pizza! Antonio will be there!')
+    				description = 'Come learn how to make good pizza! Antonio will be there!',
+    				location = "Ehad Haam, Rehavia, Jerusalem, Israel",
+    				owner_id = antonio.id,
+    				owner = antonio)
 
 
 pizza_event_attendance1 = Attendance(person_id = antonio.id,

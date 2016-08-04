@@ -71,12 +71,13 @@ def create_account():
 
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	if request.method == 'GET':
 		currentyear = datetime.now().year
 		years = [currentyear, currentyear + 1]
 		months = range(1, 13)
 		days = range(1, 32) 
-		return render_template('create_event.html' , years = years, months = months, days = days)
+		return render_template('create_event.html', user=user , years = years, months = months, days = days)
 	else:
 		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
 		event = Event(title = request.form['title'],
@@ -97,20 +98,22 @@ def create_event():
 
 @app.route('/event/<int:event_id>') #Add and event id or smth
 def event_page(event_id):
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	attendance = dbsession.query(Attendance).filter_by(event_id = event_id).all()
-	return render_template('event_page.html', event = event, attendance = attendance)
+	return render_template('event_page.html', user=user, event = event, attendance = attendance)
 
 
 @app.route('/edit-event/<int:event_id>', methods = ['GET','POST'])
 def edit_event(event_id):
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	if request.method == 'GET':
 		currentyear = datetime.now().year
 		years = [currentyear, currentyear + 1]
 		months = range(1, 13)
 		days = range(1, 32) 
-		return render_template('edit_event.html' , event = event, years = years, months = months, days = days)
+		return render_template('edit_event.html', user=user , event = event, years = years, months = months, days = days)
 
 	else:
 		new_title = request.form['title']
@@ -153,11 +156,12 @@ def edit_profile():
 		user.bio = new_bio
 
 		dbsession.commit()
-		return redirect(url_for('profile', user_id = user.id))
+		return redirect(url_for('profile', user=user, user_id = user.id))
 
 
 @app.route('/results')
 def results_page():
+	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	searchtype = request.args.get('searchtype')
 	search = request.args.get('search')
 	#search = search.lower()
@@ -168,7 +172,7 @@ def results_page():
 	elif searchtype == 'People':
 		results = dbsession.query(Person).filter(or_(Person.name.contains(search), Person.bio.contains(search)))
 
-	return render_template('results.html', type=searchtype, results = results)
+	return render_template('results.html', user=user, type=searchtype, results = results)
 
 
 if __name__ == '__main__':

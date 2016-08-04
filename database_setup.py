@@ -24,6 +24,9 @@ class Event(Base):
 	title = Column(String(60))
 	date = Column(Date)
 	description = Column(String(300))
+	location = Column(String(60))
+	owner_id = Column(Integer, ForeignKey("person.id"))
+	owner = relationship("Person")
 
 
 class Attendance(Base):
