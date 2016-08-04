@@ -82,7 +82,15 @@ def create_event():
 		event = Event(title = request.form['title'],
 					  date = event_date,
 				      description = request.form['description'])
+
+		event_attendance = Attendance(person_id = session['user_id'],
+									  person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
+									  event_id = event.id,
+									  event = event,
+									  chef_flag = True)
+
 		dbsession.add(event)
+		dbsession.add(event_attendance)
 		dbsession.commit()
 		return redirect(url_for('event_page', event_id = event.id))
 
