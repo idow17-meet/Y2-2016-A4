@@ -45,17 +45,23 @@
 	{% if type=='Events' or type=='Food' %}
 
 	{% for result in results %}
-	<h2>{{ result.title }}</h2>
-	<p>{{ result.description }}</p>
+	<div>
+	<a href="{{ url_for('event_page' , event_id=result.id) }}">{{ result.title }}</a>
+	</div>
 	{% endfor %}
 
 	{% else %}
 
 	{% for result in results %}
+	<div>
 	<a href="{{ url_for('profile', user_id=result.id) }}">{{ result.name }}</a>
+	</div>
 	{% endfor %}
-
 	{% endif %}
+
+	<div>
+	<a href="{{ url_for('main') }}" role="button">Back</a>
+	</div>
 
 </body>
 </html>
