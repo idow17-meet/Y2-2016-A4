@@ -35,7 +35,7 @@ pizza_event = Event(title = 'Awesome Pizza Party',
     				description = 'Come learn how to make good pizza! Antonio will be there!')
 
 
-antonio_pizza = Attendance(person_id = antonio.id,
+pizza_event_attendance1 = Attendance(person_id = antonio.id,
 						   person = antonio,
 						   event_id = pizza_event.id,
 						   event = pizza_event,
@@ -48,5 +48,5 @@ session.query(Attendance).delete()
 session.add(antonio)
 session.add(loai)
 session.add(pizza_event)
-session.add(antonio_pizza)
+session.add(pizza_event_attendance1)
 session.commit()

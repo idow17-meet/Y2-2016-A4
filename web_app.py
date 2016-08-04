@@ -81,13 +81,14 @@ def create_event():
 				      description = request.form['description'])
 		dbsession.add(event)
 		dbsession.commit()
-		return redirect(url_for('event'))
+		return redirect(url_for('event_page', event_id = event.id))
 
 
 @app.route('/event/<int:event_id>') #Add and event id or smth
-def event(event_id):
+def event_page(event_id):
 	event = dbsession.query(Event).filter_by(id = event_id).first()
-	return render_template('event_page.html', event = event)
+	attendance = dbsession.query(Attendance).filter_by(event_id = event_id).all()
+	return render_template('event_page.html', event = event, attendance = attendance)
 
 
 @app.route('/edit-event' , methods = ['GET','POST'])
