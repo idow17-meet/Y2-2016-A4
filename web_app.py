@@ -45,7 +45,10 @@ def logout():
 @app.route('/main')
 def main():
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
-	return render_template('main_page.html', user=user)
+	events = dbsession.query(Event).all()
+	first_event = events.pop(0)
+	events_len = len(events)
+	return render_template('main_page.html', user=user, first_event = first_event, events=events, events_len=events_len)
 
 
 @app.route('/create-account', methods = ['GET', 'POST'])
@@ -91,11 +94,12 @@ def event_page(event_id):
 	return render_template('event_page.html', event = event, attendance = attendance)
 
 
-@app.route('/edit-event' , methods = ['GET','POST'])
-def edit_event():
+@app.route('/edit-event/<int:event_id>', methods = ['GET','POST'])
+def edit_event(event_id):
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	if request.method == 'GET':
 		return render_template('edit_event.html' , event = event)
+		
 	else:
 		new_title = request.form['title']
 		new_date = request.form['date'] #CHANGE THIS TO WORK PROPERLY
@@ -106,7 +110,7 @@ def edit_event():
 		event.description = new_desc
 
 		dbsession.commit()
-		return redirect(url_for('profile',event_id = event_id))
+		return redirect(url_for('event_page', event_id = event_id))
 
 
 

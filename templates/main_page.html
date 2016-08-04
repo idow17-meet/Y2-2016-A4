@@ -98,28 +98,31 @@
 
 			<a href="{{url_for('create_event')}}" class="btn btn-warning">Create event</a>
 	</div>
+	<!-- CAROUSEL EVENTS VVVVV -->
 	<div class="container">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
-				<li data-target="#myCarousel" data-slide-to="2"></li>
-				<li data-target="#myCarousel" data-slide-to="3"></li>
+				{% for i in range(events_len) %}
+				<li data-target="#myCarousel" data-slide-to="{{ i + 1 }}"></li>
+				{% endfor %}
 			</ol>
 
 			<!-- Wrapper for slides -->
-			<div class="carousel-inner" role="listbox">
+			<br>
+			<br>
+			<br>
+			<div class="carousel-inner" role="listbox" style="margin-top: 20px;">
 				<div class="item active" width="100%">
-					<a href='BROKEN-LINK-FOR-CRETING-EVENTS' class="btn btn-primary" >Antonios' party woooo</a>
-					<a href='BROKEN-LINK-FOR-CRETING-EVENTS' class="btn btn-primary">Ido's eating fest</a>
+					<a href="{{ url_for('event_page', event_id=first_event.id) }}" role="button" class="btn btn-info">{{ first_event.title }}</a>
 				</div>
-
-				<div class="item">
-					<a href='BROKEN-LINK-FOR-CRETING-EVENTS' class="btn btn-primary">Ido's eating fest</a>
-					<a href='BROKEN-LINK-FOR-CRETING-EVENTS' class="btn btn-primary">Ido's eating fest</a>
+				{% for event in events %}
+				<div class="item" width="100%">
+					<a href="{{ url_for('event_page', event_id=event.id) }}" role="button" class="btn btn-info">{{ event.title }}</a>
 				</div>
+				{% endfor %}
 			</div>
 
 			<!-- Left and right controls -->
