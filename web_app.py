@@ -98,11 +98,15 @@ def event_page(event_id):
 def edit_event(event_id):
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	if request.method == 'GET':
-		return render_template('edit_event.html' , event = event)
-		
+		currentyear = datetime.now().year
+		years = [currentyear, currentyear + 1]
+		months = range(1, 13)
+		days = range(1, 32) 
+		return render_template('edit_event.html' , event = event, years = years, months = months, days = days)
+
 	else:
 		new_title = request.form['title']
-		new_date = request.form['date'] #CHANGE THIS TO WORK PROPERLY
+		new_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))
 		new_desc = request.form['description']
 
 		event.name = new_title
