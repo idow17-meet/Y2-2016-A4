@@ -21,6 +21,14 @@ antonio = Person(name = 'Antonio Delegrassi',
 				bio = 'I identify as a chair because why not',
 				rating = 4)
 
+loai = Person(name = 'Loai Qubti',
+			  username = 'Loai',
+			  password = 'yoyoyo',
+			  gender = 'Male',
+			  nationality = 'Palestinian',
+			  bio = 'I love potatoes because cucumbers suck.',
+			  rating = 5)
+
 
 pizza_event = Event(title = 'Awesome Pizza Party',
     				date = datetime(2016, 8, 10),
@@ -38,6 +46,7 @@ session.query(Event).delete()
 session.query(Attendance).delete()
 
 session.add(antonio)
+session.add(loai)
 session.add(pizza_event)
 session.add(antonio_pizza)
 session.commit()
