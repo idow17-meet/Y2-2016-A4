@@ -101,11 +101,7 @@ def event_page(event_id):
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	attendance = dbsession.query(Attendance).filter_by(event_id = event_id).all()
-<<<<<<< HEAD
 	return render_template('event_page.html', user=user, event = event, attendance = attendance)
-=======
-	return render_template('event_page.html', event = event, attendance = attendance , user = user)
->>>>>>> 5b0de986bf865fa0bb904f84e03fc0b590cd7b7c
 
 
 @app.route('/edit-event/<int:event_id>', methods = ['GET','POST'])
