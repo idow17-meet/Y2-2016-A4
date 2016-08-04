@@ -112,7 +112,7 @@ def edit_event():
 @app.route('/profile/<int:user_id>')
 def profile(user_id):
 	user = dbsession.query(Person).filter_by(id = user_id).first()
-	return render_template('profile_page.html', user = user)
+	return render_template('profile_page.html', user = user, current_id = session['user_id'])
 
 
 @app.route('/edit-profile', methods = ['GET', 'POST'])
