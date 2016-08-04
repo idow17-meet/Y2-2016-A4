@@ -32,7 +32,7 @@
 <body>
 	<h3>Create an Event</h3>
 
-	<form action="{{ url_for('create_event') }}" method="post">
+	<form action="{{ url_for('create_event') }}" method="post" role="form-horizontal">
 		<div class='form-group'>
 			<label for="title">Event Name:</label>
 			<input type="text" name="title" placeholder="Event Name" id="title">
@@ -40,20 +40,16 @@
 		</div>
 
 		<div class="form-group">
-			<select name="day" style="float: left; margin-right: 5px">
+			<select name="day">
 				{% for day in days %}
 				<option value="{{ day }}">{{ day }}</option>
 				{% endfor %}
 			</select>
-		</div>
-		<div class="form-group">
-			<select name="month" style="float: left; margin-right: 5px">
+			<select name="month">
 				{% for month in months %}
 				<option value="{{ month }}">{{ month }}</option>
 				{% endfor %}
 			</select>
-		</div>
-		<div class="form-group">
 			<select name="year">
 				{% for year in years %}
 				<option value="{{ year }}">{{ year }}</option>
