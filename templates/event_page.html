@@ -54,8 +54,18 @@
 
 
 <!-- IF I OWN THIS EVENT , YOU CAN EDIT-->
+{% for row in attendance %}
+{% if row.chef_flag == True %}
+{% if row.person.name == user.name %}
+<div>
 <a href="{{ url_for('edit_event', event_id = event.id) }}">Edit</a>
-
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+<div>
+<a href="{{ url_for('main') }}" role="button">Back</a>
+</div>
 <!-- ADD ATTENDING LISTSSSSSSSSSS-->
 
 
