@@ -16,3 +16,12 @@ nav#mainNav {
 	padding-bottom: 0px;
 	padding-top: 0px;
 }
+#login-img {
+	margin-top: 2.5%;
+	margin-bottom: 2.5%;
+}
+#page-top {
+	background-image: url('../img/Main_page_pic.jpg');
+	background-size: cover;
+	background-position: 0% -10%;
+	}
