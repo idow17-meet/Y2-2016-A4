@@ -25,3 +25,21 @@ nav#mainNav {
 	background-size: cover;
 	background-position: 0% -10%;
 	}
+.default {
+	background-color: #2C3E50;
+	color: white;
+}
+.default .container {
+  padding-bottom: 50px;
+}
+.default .intro-text .name {
+  display: block;
+  font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2em;
+}
+.default .intro-text .skills {
+  font-size: 1.25em;
+  font-weight: 300;
+}

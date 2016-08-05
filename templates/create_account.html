@@ -31,53 +31,98 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="default container-fluid">
 
 		<h1>Create an account</h1>
 
 		<form action="{{ url_for('create_account') }}" method="post">
+
 			<div class="form-group">
-				<label for="name">Full name:</label>
-				<input type="text" name="fullname" placeholder="Full Name" id="name">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="usr">Username:</label>
+						<input type="text" name="username" placeholder="Username" id="usr" class="form-control">
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
+
 			<div class="form-group">
-				<label for="usr">Username:</label>
-				<input type="text" name="username" placeholder="Username" id="usr">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="pass">Password:</label>
+						<input type="password" name="password" placeholder="Password" id="pass" class="form-control">
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
+				
+
 			<div class="form-group">
-				<label for="pass">Password:</label>
-				<input type="password" name="password" placeholder="Password" id="pass">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="pass">Confirm Password:</label>
+						<input type="password" name="password" placeholder="Password" id="confirmpass" class="form-control">
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
+
 			<div class="form-group">
-				<label for="pass">Confirm Password:</label>
-				<input type="password" name="password" placeholder="Password" id="confirmpass">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="name">Full name:</label>
+						<input type="text" name="fullname" placeholder="Full Name" id="name" class="form-control">
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
-			Gender:
+
+			<label>Gender:</label>
 			<label class="radio-inline"><input type="radio" name="gender" value="Male" id="gend">Male</label>
 			<label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
 			<label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label>
 			<br>
+
 			<div class="form-group">
-				<label for="nat">Nationality:</label>
-				<input type="text" name="nationality" placeholder="Nationality" id="nat">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="nat">Nationality:</label>
+						<input type="text" name="nationality" placeholder="Nationality" id="nat" class="form-control">
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
+
 			<div class="form-group">
-				<label for="desc">Description:</label>
-				<textarea class="form-control" rows="5" name="bio" placeholder="Tell users a bit about yourself" id="desc"></textarea>
-				<br>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<label for="desc">Description:</label>
+						<textarea class="form-control" rows="5" name="bio" placeholder="Tell users a bit about yourself" id="desc" class="form-control"></textarea>
+						<br>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
 			</div>
+
 			<div class="form-group">
-				<input type="submit" value="Sign Up" onclick="return Validate()">
+				<input type="submit" value="Sign Up" onclick="return Validate()" role="button" class="btn btn-success">
 				<br>
 			</div>
 		</form>
 
-		<a href="{{ url_for('login') }}" role="button">Cancel</a>
+		<a href="{{ url_for('login') }}" role="button" class="btn btn-default" style="margin-bottom: 20px;">Cancel</a>
 
 		 <script type="text/javascript">
 	    function Validate() {
