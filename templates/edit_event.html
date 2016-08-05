@@ -65,59 +65,93 @@
 	</div>
 	<h3>Edit Your Event</h3>
 
-	<form action="{{ url_for('create_event') }}" method="post">
+	<form action="{{ url_for('create_event') }}" method="post" role="form" class="form-vertical"> 
 		<div class='form-group'>
-			<label for="title">Event Name:</label>
-			<input type="text" name="title" value="{{ event.title }}" id="title">
-			<br>
+			<div class="row">
+				<div class="col-md-5"></div>
+				<div class="col-md-2">
+					<label for="title">Event Name:</label>
+					<input type="text" name="title" value="{{ event.title }}" id="title" class="form-control">
+					<br>
+				</div>
+				<div class="col-md-5"></div>
+			</div>
+		</div>
+		<label>Date:</label>
+		<div class="form-group"> 
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-1">
+					<select name="day" style="float: center; padding-right: 0px;" class="form-control"> 
+						{% for day in days %}
+						{% if day == event.date.day %}
+						<option value="{{ day }}" class="form-control" selected>{{ day }}</option>
+
+						{% else %}
+						<option value="{{ day }}">{{ day }}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+				<!-- </div>  -->
+			<!--	<div class="form-group"> -->
+				<div class="col-md-1">
+					<select name="month" style="float: center; margin-left: 1px" class="form-control">
+						{% for month in months %}
+						{% if month == event.date.month %}
+						<option value="{{ month }}" selected>{{ month }}</option>
+						
+						{% else %}
+						<option value="{{ month }}">{{ month }}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+			<!--	</div>
+				<div class="form-group"> -->
+				<div class="col-md-2">
+					<select name="year" class="form-control" style="padding-left: 0x;">
+						{% for year in years %}
+						{% if year == event.date.year %}
+						<option value="{{ year }}" selected>{{ year }}</option>
+
+						{% else %}
+						<option value="{{ year }}">{{ year }}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div> 
+
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="des">Description:</label>
+					<textarea name="description" rows="5" value="{{ event.description }}" class="form-control">{{ event.description }}</textarea>
+					<br>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
 		</div>
 
-	<!--	<div class="form-group"> -->
-			<select name="day" style="float: center; margin-left: 1px"> 
-				{% for day in days %}
-				{% if day == event.date.day %}
-				<option value="{{ day }}" selected>{{ day }}</option>
-
-				{% else %}
-				<option value="{{ day }}">{{ day }}</option>
-				{% endif %}
-				{% endfor %}
-			</select>
-	<!--	</div> -->
-	<!--	<div class="form-group"> -->
-			<select name="month" style="float: center; margin-left: 1px">
-				{% for month in months %}
-				{% if month == event.date.month %}
-				<option value="{{ month }}" selected>{{ month }}</option>
-				
-				{% else %}
-				<option value="{{ month }}">{{ month }}</option>
-				{% endif %}
-				{% endfor %}
-			</select>
-	<!--	</div>
-		<div class="form-group"> -->
-			<select name="year">
-				{% for year in years %}
-				{% if year == event.date.year %}
-				<option value="{{ year }}" selected>{{ year }}</option>
-
-				{% else %}
-				<option value="{{ year }}">{{ year }}</option>
-				{% endif %}
-				{% endfor %}
-			</select>
-	<!--	</div> -->
-
-		<div class="form-group">
-			<label for="des">Description:</label>
-			<textarea name="description" rows="5" value="{{ event.description }}">{{ event.description }}</textarea>
-			<br>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for="location">Location:</label>
+					<input type="text" name="location" value="{{ event.location }}" id="location" class="form-control">
+					<br>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
 		</div>
 
-		<input type="submit" name="submit" value="Create Event">
+		<input type="submit" name="submit" value="Submit" role="button" class="btn btn-warning">
 	</form>
 
-	<a href="{{ url_for('main') }}" role="button">Cancel</a>
+	<a href="{{ url_for('main') }}" role="button" class="btn btn-default" style="margin-top: 5px; margin-bottom: px;">Cancel</a>
 </body>
 </html>

@@ -82,7 +82,10 @@ def create_event():
 		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
 		event = Event(title = request.form['title'],
 					  date = event_date,
-				      description = request.form['description'])
+				      description = request.form['description'],
+				      owner_id = user.id,
+				      owner = user,
+				      location = request.form['location'])
 
 		event_attendance = Attendance(person_id = session['user_id'],
 									  person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
@@ -101,13 +104,15 @@ def event_page(event_id):
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	event = dbsession.query(Event).filter_by(id = event_id).first()
 	attendance = dbsession.query(Attendance).filter_by(event_id = event_id).all()
+	if event.owner == user:
+		session['event_id'] = event.id
 	return render_template('event_page.html', user=user, event = event, attendance = attendance)
 
 
-@app.route('/edit-event/<int:event_id>', methods = ['GET','POST'])
-def edit_event(event_id):
+@app.route('/edit-event', methods = ['GET','POST'])
+def edit_event():
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
-	event = dbsession.query(Event).filter_by(id = event_id).first()
+	event = dbsession.query(Event).filter_by(id = session['event_id']).first()
 	if request.method == 'GET':
 		currentyear = datetime.now().year
 		years = [currentyear, currentyear + 1]

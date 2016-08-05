@@ -27,12 +27,7 @@
 
 	<!-- Our css file -->
 	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
-
-	<style>
-	#page-top{
-		background-image: url('{{ url_for('static', filename='img/Main_page_pic.jpg') }}');
-	}
-	</style>
+	<link href="{{ url_for('static', filename='js/main.js') }}" rel="stylesheet">
 	
 </head>
 
@@ -76,36 +71,32 @@
 		<br>
 
 
-		<form action="{{ url_for('results_page') }}" class='form-group' role="form-horizontal">
-			<div class="row">
-				<div class="col-md-3"></div>
-				<div class="col-md-2" style="margin-right: 0px; padding-right: 0px;">
-					<select name="searchtype" class="form-control">
-						<option value="Events">Events</option>
-						<option value="Food">Food</option>
-						<option value="People">People</option>
-					</select>
-				</div>
-				<div class="col-md-2" style="margin-left: 0px; padding-right: 0px;">
-					<div class="form-group">
-						<input type="text" name="search" class="form-control">
-					</div>
-				</div>
-				<div class="col-md-1" style="padding-left: 0px;">
-					<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;">
-				</div>
-				<div class="col-md-3"></div>
+	<form action="{{ url_for('results_page') }}" class='form-horizontal' role="form" name="Search">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-2" style="margin-right: 20px; padding-right: 0px;">
+				<select name="searchtype" class="form-control">
+					<option value="Events">Events</option>
+					<option value="Food">Food</option>
+					<option value="People">People</option>
+				</select>
 			</div>
-		</form>
-
-			<br>
-			<br>
-			<br>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="text" name="search" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-1" style="margin-left: 1px;">
+				<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" id="search">
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</form>
 
 			<a href="{{url_for('create_event')}}" class="btn btn-warning">Create event</a>
 	</div>
 	<!-- CAROUSEL EVENTS VVVVV -->
-	<div class="container">
+	<div class="container" style="margin-top: 5%;">
 		<br>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
