@@ -161,14 +161,12 @@ def edit_profile():
 		return render_template('edit_profile.html', user = user)
 	else:
 		new_name = request.form['fullname']
-		new_username = request.form['username']
 		new_password = request.form['password']
 		new_gender = request.form['gender']
 		new_nationality = request.form['nationality']
 		new_bio = request.form['bio']
 
 		user.name = new_name
-		user.username = new_username
 		user.password = new_password
 		user.gender = new_gender
 		user.nationality = new_nationality
