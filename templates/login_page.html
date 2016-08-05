@@ -32,27 +32,51 @@
 </head>
 
 <body>
-	<!-- <h1>TradEat</h1> -->
-	<img src="{{ url_for('static', filename='img/TrEat.png') }}" id="login-img">
+	<div class="container">
+		<!-- <h1>TradEat</h1> -->
+		<img src="{{ url_for('static', filename='img/TrEat.png') }}" id="login-img">
 
-	{% if error == True %}
-	<h3 style="color: red">Wrong username or password</h3>
-	{% endif %}
-	<form action="{{ url_for('login') }}" method="post" role="form">
-		<div class="form-group">
-			<label for="usr">Enter your username:</label>
-			<input type="text" name="username" placeholder="Username" id="usr">
+		{% if error == True %}
+		<h3 style="color: red">Wrong username or password</h3>
+		{% endif %}
+
+		<form action="{{ url_for('login') }}" method="post" role="form">
+			<div class="row">
+				<div class="col-md-5"></div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="usr">Enter your username:</label>
+						<input type="text" name="username" placeholder="Username" id="usr" class="form-control">
+						<br>
+					</div>
+				</div>
+				<div class="col-md-5"></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-5"></div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<label for="pass">Enter your password:</label>
+						<input type="password" name="password" placeholder="Password" id="pass" class="form-control">
+						<br>
+					</div>
+				</div>
+				<div class="col-md-5"></div>
+			</div>
+
+			<input type="submit" value="Log in" role="button" class="btn btn-default" style="margin-bottom: 10px;">
 			<br>
+		</form>
+
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-4" style="margin-left: 22.5px;">
+				<label>Don't have an account?</label>
+				<a href="{{ url_for('create_account') }}" role="button" class="btn btn-success">Sign Up</a>
+			</div>
 		</div>
-		<div class="form-group">
-			<label for="pass">Enter your password:</label>
-			<input type="password" name="password" placeholder="Password" id="pass">
-			<br>
-		</div>
-		<input type="submit" value="Log in" role="button" class="btn btn-default">
-		<br>
-	</form>
-	<a href="{{ url_for('create_account') }}" role="button" class="btn btn-success">Register</a>
+	</div>
 
 
 	
