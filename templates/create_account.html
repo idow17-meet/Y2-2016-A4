@@ -31,63 +31,66 @@
 </head>
 
 <body>
+	<div class="container">
 
-	<h3>Create an account</h3>
+		<h1>Create an account</h1>
 
-	<form action="{{ url_for('create_account') }}" method="post">
-		<div class="form-group">
-			<label for="name">Full name:</label>
-			<input type="text" name="fullname" placeholder="Full Name" id="name">
+		<form action="{{ url_for('create_account') }}" method="post">
+			<div class="form-group">
+				<label for="name">Full name:</label>
+				<input type="text" name="fullname" placeholder="Full Name" id="name">
+				<br>
+			</div>
+			<div class="form-group">
+				<label for="usr">Username:</label>
+				<input type="text" name="username" placeholder="Username" id="usr">
+				<br>
+			</div>
+			<div class="form-group">
+				<label for="pass">Password:</label>
+				<input type="password" name="password" placeholder="Password" id="pass">
+				<br>
+			</div>
+			<div class="form-group">
+				<label for="pass">Confirm Password:</label>
+				<input type="password" name="password" placeholder="Password" id="confirmpass">
+				<br>
+			</div>
+			Gender:
+			<label class="radio-inline"><input type="radio" name="gender" value="Male" id="gend">Male</label>
+			<label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
+			<label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label>
 			<br>
-		</div>
-		<div class="form-group">
-			<label for="usr">Username:</label>
-			<input type="text" name="username" placeholder="Username" id="usr">
-			<br>
-		</div>
-		<div class="form-group">
-			<label for="pass">Password:</label>
-			<input type="password" name="password" placeholder="Password" id="pass">
-			<br>
-		</div>
-		<div class="form-group">
-			<label for="pass">Confirm Password:</label>
-			<input type="password" name="password" placeholder="Password" id="confirmpass">
-			<br>
-		</div>
-		Gender:
-		<label class="radio-inline"><input type="radio" name="gender" value="Male" id="gend">Male</label>
-		<label class="radio-inline"><input type="radio" name="gender" value="Female">Female</label>
-		<label class="radio-inline"><input type="radio" name="gender" value="Other">Other</label>
-		<br>
-		<div class="form-group">
-			<label for="nat">Nationality:</label>
-			<input type="text" name="nationality" placeholder="Nationality" id="nat">
-			<br>
-		</div>
-		<div class="form-group">
-			<label for="desc">Description:</label>
-			<textarea class="form-control" rows="5" name="bio" placeholder="Tell users a bit about yourself" id="desc"></textarea>
-			<br>
-		</div>
-		<div class="form-group">
-			<input type="submit" value="Sign Up" onclick="return Validate()">
-			<br>
-		</div>
-	</form>
+			<div class="form-group">
+				<label for="nat">Nationality:</label>
+				<input type="text" name="nationality" placeholder="Nationality" id="nat">
+				<br>
+			</div>
+			<div class="form-group">
+				<label for="desc">Description:</label>
+				<textarea class="form-control" rows="5" name="bio" placeholder="Tell users a bit about yourself" id="desc"></textarea>
+				<br>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Sign Up" onclick="return Validate()">
+				<br>
+			</div>
+		</form>
 
-	<a href="{{ url_for('login') }}" role="button">Cancel</a>
+		<a href="{{ url_for('login') }}" role="button">Cancel</a>
 
-	 <script type="text/javascript">
-    function Validate() {
-        var password = document.getElementById("pass").value;
-        var confirmPassword = document.getElementById("confirmpass").value;
-        if (password != confirmPassword) {
-            alert("Passwords do not match.");
-            return false;
-        }
-        return true;
-    }
-</script>
+		 <script type="text/javascript">
+	    function Validate() {
+	        var password = document.getElementById("pass").value;
+	        var confirmPassword = document.getElementById("confirmpass").value;
+	        if (password != confirmPassword) {
+	            alert("Passwords do not match.");
+	            return false;
+	        }
+	        return true;
+	    }
+		</script>
+	</div>
+
 </body>
 </html>
