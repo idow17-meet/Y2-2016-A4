@@ -82,10 +82,10 @@ def create_event():
 		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
 		event = Event(title = request.form['title'],
 					  date = event_date,
-				      description = request.form['description'],
-				      owner_id = user.id,
-				      owner = user,
-				      location = request.form['location'])
+					  description = request.form['description'],
+					  owner_id = user.id,
+					  owner = user,
+					  location = request.form['location'])
 
 		event_attendance = Attendance(person_id = session['user_id'],
 									  person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
@@ -131,6 +131,20 @@ def edit_event():
 
 		dbsession.commit()
 		return redirect(url_for('event_page', event_id = event_id))
+
+
+@app.route('/attend-event/<int:event_id>')
+def attend_event(event_id):
+	event = dbsession.query(Event).filter_by(id = event_id).first()
+	event_attendance  = Attendance(person_id = session['user_id'],
+								   person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
+								   event_id = event.id,
+								   event = event,
+								   chef_flag = False)
+
+	dbsession.add(event_attendance)
+	dbsession.commit()
+	return redirect(url_for('event_page', event_id = event_id))
 
 
 
