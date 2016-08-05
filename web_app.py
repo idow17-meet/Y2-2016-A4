@@ -186,13 +186,18 @@ def results_page():
 	#search = search.lower()
 
 	if searchtype in ('Events', 'Food'):
-		results = dbsession.query(Event).filter(or_(Event.title.contains(search), Event.description.contains(search)))
+		results = dbsession.query(Event).filter(or_(Event.title.contains(search), Event.description.contains(search))).all()
 
 	elif searchtype == 'People':
-		results = dbsession.query(Person).filter(or_(Person.name.contains(search), Person.bio.contains(search)))
+		results = dbsession.query(Person).filter(or_(Person.name.contains(search), Person.bio.contains(search))).all()
+
+	if results == []:
+		searchtype = '404'
+		print('nothing found')
 
 	return render_template('results.html', user=user, type=searchtype, results = results)
 
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
