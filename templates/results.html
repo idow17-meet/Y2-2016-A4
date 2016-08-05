@@ -96,13 +96,16 @@
 	</div>
 	{% endfor %}
 
-	{% else %}
+	{% elif type=='People' %}
 
 	{% for result in results %}
 	<div>
 	<a href="{{ url_for('profile', user_id=result.id) }}">{{ result.name }}</a>
 	</div>
 	{% endfor %}
+
+	{% else %}
+	<h2>No results found.</h2>
 	{% endif %}
 
 	<div>
