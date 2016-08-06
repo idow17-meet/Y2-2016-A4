@@ -83,11 +83,11 @@
 					</div>
 					<div class="col-md-2">
 						<div class="form-group">
-							<input type="text" name="search" class="form-control">
+							<input type="text" name="search" class="form-control" id="search">
 						</div>
 					</div>
 					<div class="col-md-1" style="margin-left: 1px;">
-						<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" id="search">
+						<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" onclick="return CheckEmpty()">
 					</div>
 					<div class="col-md-3"></div>
 				</div>
@@ -178,6 +178,17 @@
 			</div>
 		</div>
 	</header>
+
+	<script type="text/javascript">
+	    function CheckEmpty() {
+	        var search = document.getElementById("search").value;
+	        if (search == "") {
+	            alert("Please enter a search word");
+	            return false;
+	        }
+	        return true;
+	    }
+	</script>
 </body>
 
 

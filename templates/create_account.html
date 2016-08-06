@@ -125,16 +125,16 @@
 
 		<a href="{{ url_for('login') }}" role="button" class="btn btn-default" style="margin-bottom: 20px;">Cancel</a>
 
-		 <script type="text/javascript">
-	    function Validate() {
-	        var password = document.getElementById("pass").value;
-	        var confirmPassword = document.getElementById("confirmpass").value;
-	        if (password != confirmPassword) {
-	            alert("Passwords do not match.");
-	            return false;
-	        }
-	        return true;
-	    }
+		<script type="text/javascript">
+		    function Validate() {
+		        var password = document.getElementById("pass").value;
+		        var confirmPassword = document.getElementById("confirmpass").value;
+		        if (password != confirmPassword) {
+		            alert("Passwords do not match.");
+		            return false;
+		        }
+		        return true;
+		    }
 		</script>
 	</div>
 
