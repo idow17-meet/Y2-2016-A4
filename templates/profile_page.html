@@ -65,10 +65,10 @@
 	</div>
 <!-- The web app passes a user object to this page and then we use it in the following way: user.<attribute> -->
 	<div class="container">
-		<h1>{{ user.name }}</h1>
-		<h3>{{ user.gender }}</h3>
-		<h3>{{ user.nationality }}</h3>
-		<p>{{ user.bio }}</p>
+		<p><b>Name:</b> {{ user.name }}</h1>
+		<p><b>Gender:</b> {{ user.gender }}</h3>
+		<p><b>Nationality:</b> {{ user.nationality }}</h3>
+		<p><b>Bio:</b> {{ user.bio }}</p>
 
 		<!-- {% for i in range(user.rating) %}
 		<img src="{{ url_for('static', filename='star.png') }}" width="50px" height="47px">

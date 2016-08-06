@@ -72,30 +72,44 @@ def create_account():
 @app.route('/create-event', methods = ['GET', 'POST'])
 def create_event():
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
+	events = dbsession.query(Event).all()  # Get all events
+
 	if request.method == 'GET':
 		currentyear = datetime.now().year
 		years = [currentyear, currentyear + 1]
 		months = range(1, 13)
 		days = range(1, 32) 
 		return render_template('create_event.html', user=user , years = years, months = months, days = days)
-	else:
-		event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
-		event = Event(title = request.form['title'],
-					  date = event_date,
-					  description = request.form['description'],
-					  owner_id = user.id,
-					  owner = user,
-					  location = request.form['location'])
 
-		event_attendance = Attendance(person_id = session['user_id'],
-									  person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
-									  event_id = event.id,
-									  event = event,
-									  chef_flag = True)
+	else:  # If user wants to create an event
 
-		dbsession.add(event)
-		dbsession.add(event_attendance)
-		dbsession.commit()
+		event_exists = False
+		for event in events:
+			if event.title == request.form['title']:  # If event name exists
+				event_exists = True
+				break
+
+
+		if not event_exists:  # Check if event exists flag is set
+			event_date = datetime(int(request.form['year']), int(request.form['month']), int(request.form['day']))		
+			event = Event(title = request.form['title'],
+						  date = event_date,
+						  description = request.form['description'],
+						  owner_id = user.id,
+						  owner = user,
+						  location = request.form['location'])
+
+			event_attendance = Attendance(person_id = session['user_id'],
+										  person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
+										  event_id = event.id,
+										  event = event,
+										  chef_flag = True)
+
+			dbsession.add(event)
+			dbsession.add(event_attendance)
+			dbsession.commit()
+			## ADD ELSE (EVENT EXISTS) TELL USER
+			
 		return redirect(url_for('event_page', event_id = event.id))
 
 
@@ -103,10 +117,19 @@ def create_event():
 def event_page(event_id):
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	event = dbsession.query(Event).filter_by(id = event_id).first()
-	attendance = dbsession.query(Attendance).filter_by(event_id = event_id).all()
+	attendance_list = dbsession.query(Attendance).filter_by(event_id = event_id).all()  # All attendance for this event
+
+	already_attending = False
+
+	for attendance in attendance_list:
+		if attendance.person_id == session['user_id']:
+			already_attending = True  # Check if user is in this event
+			break
+
+
 	if event.owner == user:
 		session['event_id'] = event.id
-	return render_template('event_page.html', user=user, event = event, attendance = attendance)
+	return render_template('event_page.html', user=user, event = event, attendance_list = attendance_list, already_attending = already_attending)
 
 
 @app.route('/edit-event', methods = ['GET','POST'])
@@ -135,17 +158,43 @@ def edit_event():
 
 @app.route('/attend-event/<int:event_id>')
 def attend_event(event_id):
+	already_attending = False
 	event = dbsession.query(Event).filter_by(id = event_id).first()
-	event_attendance  = Attendance(person_id = session['user_id'],
-								   person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
-								   event_id = event.id,
-								   event = event,
-								   chef_flag = False)
+	attendance_list = dbsession.query(Attendance).filter_by(event_id = event.id).all()
 
-	dbsession.add(event_attendance)
-	dbsession.commit()
+	for attendance in attendance_list:
+		if attendance.person_id == session['user_id']:
+			already_attending = True
+			break
+
+	if request.args.get('chef') == '1':
+		chef_flag = True
+	else:
+		chef_flag = False
+
+	if not already_attending:  # If the user is not already going to the event, add him to the event
+		event_attendance  = Attendance(person_id = session['user_id'],
+									   person = dbsession.query(Person).filter_by(id = session['user_id']).first(),
+									   event_id = event.id,
+									   event = event,
+									   chef_flag = chef_flag)
+
+		dbsession.add(event_attendance)
+		dbsession.commit()
 	return redirect(url_for('event_page', event_id = event_id))
 
+
+@app.route('/unattend-event/<int:event_id>')
+def unattend_event(event_id):
+	event = dbsession.query(Event).filter_by(id = event_id).first()
+	attendance_list = dbsession.query(Attendance).filter_by(event_id = event_id).all()
+
+	for attendance in attendance_list:
+		if session['user_id'] == attendance.person_id and session['user_id'] != event.owner_id:
+			dbsession.delete(attendance)
+
+	dbsession.commit()
+	return redirect(url_for('event_page', event_id = event_id))
 
 
 @app.route('/profile/<int:user_id>')

@@ -129,6 +129,18 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<div class="form-group">
+					<label for="location">Location:</label>
+					<input type="text" name="location" value="{{ event.location }}" id="location" class="form-control">
+					<br>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="form-group">
 					<label for="des">Description:</label>
 					<textarea name="description" rows="5" value="{{ event.description }}" class="form-control">{{ event.description }}</textarea>
 					<br>
@@ -137,17 +149,6 @@
 			<div class="col-md-4"></div>
 		</div>
 
-		<div class="row">
-			<div class="col-md-4"></div>
-			<div class="col-md-4">
-				<div class="form-group">
-					<label for="location">Location:</label>
-					<input type="text" name="location" value="{{ event.location }}" id="location" class="form-control">
-					<br>
-				</div>
-			</div>
-			<div class="col-md-4"></div>
-		</div>
 
 		<input type="submit" name="submit" value="Submit" role="button" class="btn btn-warning">
 	</form>

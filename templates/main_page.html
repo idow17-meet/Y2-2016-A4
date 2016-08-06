@@ -71,29 +71,29 @@
 		<br>
 
 
-	<form action="{{ url_for('results_page') }}" class='form-horizontal' role="form" name="Search">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-2" style="margin-right: 20px; padding-right: 0px;">
-				<select name="searchtype" class="form-control">
-					<option value="Events">Events</option>
-					<option value="Food">Food</option>
-					<option value="People">People</option>
-				</select>
-			</div>
-			<div class="col-md-2">
-				<div class="form-group">
-					<input type="text" name="search" class="form-control">
+		<form action="{{ url_for('results_page') }}" class='form-horizontal' role="form" name="Search">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-2" style="margin-right: 20px; padding-right: 0px;">
+					<select name="searchtype" class="form-control">
+						<option value="Events">Events</option>
+						<option value="Food">Food</option>
+						<option value="People">People</option>
+					</select>
 				</div>
+				<div class="col-md-2">
+					<div class="form-group">
+						<input type="text" name="search" class="form-control">
+					</div>
+				</div>
+				<div class="col-md-1" style="margin-left: 1px;">
+					<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" id="search">
+				</div>
+				<div class="col-md-3"></div>
 			</div>
-			<div class="col-md-1" style="margin-left: 1px;">
-				<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" id="search">
-			</div>
-			<div class="col-md-3"></div>
-		</div>
-	</form>
+		</form>
 
-			<a href="{{url_for('create_event')}}" class="btn btn-warning">Create event</a>
+		<a href="{{url_for('create_event')}}" class="btn btn-warning">Create event</a>
 	</div>
 	<!-- CAROUSEL EVENTS VVVVV -->
 	<div class="container" style="margin-top: 5%;">
@@ -137,12 +137,32 @@
 <body>
 	<header id="about" style="margin-top: 600px;">
 		<div class='row'>
-			<div class="col-md-2"><p></p></div>
+			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<h2>About</h2>
-				<p>TrEat brings people together from other nationalities to learn and cook traditional food from each other.</p>
+				<p>TrEat brings people together from other nationalities to learn how to cook traditional food of a nationality other than your own.</p>
 				<h3>Why TrEat?</h3>
-				<p>TrEat disrupts the tribalism between a lot of nationalities , by meeting people of different nationalities , and coming together cooking FOOD.</p><!-- ADD MORE DETAILS FFS BRO!-->
+				<p>TrEat disrupts tribalism by bringing together people of different nationalities, and have them teach each other how to cook their food.</p>
+				<h3>Our team:</h3>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4">
+					<p >Ido Wiernik</p>
+					<img class="img-circle" alt="" src="{{ url_for('static', filename='img/ido-profile.jpg') }}" width="40%" height="40%">
+				</div>
+				<div class="col-md-4">
+					<p >Loai Qubti</p>
+					<img class="img-circle" alt="" src="{{ url_for('static', filename='img/loai-profile.jpg') }}" width="40%" height="40%">
+				</div>
+				<div class="col-md-4">
+					<p>Diala Bayatneh</p>
+					<img class="img-circle" alt="" src="{{ url_for('static', filename='img/diala-profile.jpg') }}" width="40%" height="40%">
+					
+				</div>
 			</div>
 		</div>
 	</header>

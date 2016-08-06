@@ -39,7 +39,7 @@
 
 </head>
 <body>
-	<div id="navbar" style="margin-bottom: 10%;">
+	<div id="navbar" style="margin-bottom: 5%;">
 		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
 	        <div class="container">
 	            <!-- Brand and toggle get grouped for better mobile display -->
@@ -72,44 +72,63 @@
 	        <!-- /.container-fluid -->
 	    </nav>
 	</div>
+
 	<div class="container" id="main">
 		<h3>Create an Event</h3>
 
-		<form action="{{ url_for('create_event') }}" method="post" role="form-horizontal">
+		<form action="{{ url_for('create_event') }}" method="post" role="form" class="form-vertical">
 			<div class='form-group'>
-				<label for="title">Event Name:</label>
-				<input type="text" name="title" placeholder="Event Name" id="title">
-				<br>
+				<div class="row">
+					<div class="col-md-5"></div>
+					<div class="col-md-2">
+						<label for="title">Event Name:</label>
+						<input type="text" name="title" placeholder="Event Name" id="title" class='form-control'>
+						<br>
+					</div>
+					<div class="col-md-5"></div>
+				</div>
 			</div>
 
 			<div class="form-group">
-				<select name="day">
-					{% for day in days %}
-					<option value="{{ day }}">{{ day }}</option>
-					{% endfor %}
-				</select>
-				<select name="month">
-					{% for month in months %}
-					<option value="{{ month }}">{{ month }}</option>
-					{% endfor %}
-				</select>
-				<select name="year">
-					{% for year in years %}
-					<option value="{{ year }}">{{ year }}</option>
-					{% endfor %}
-				</select>
+				<div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-1">
+						<select name="day" class='form-control'>
+							{% for day in days %}
+							<option value="{{ day }}">{{ day }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-1">
+						<select name="month" class='form-control'>
+							{% for month in months %}
+							<option value="{{ month }}">{{ month }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-2">
+						<select name="year" class='form-control'>
+							{% for year in years %}
+							<option value="{{ year }}">{{ year }}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="col-md-4"></div>
+				</div>
 			</div>
 
-			<div class="form-group">
-				<label for="des">Description:</label>
-				<textarea name="description" rows="5" placeholder="Explain more on what are you going to cook?" id="des"></textarea>
-				<br>
-			</div>
 			<div class="form-group">
 				<label for="location">Location:</label>
-				<input type="text" name="location" placeholder="Where is the event?" id="location">
+				<input type="text" name="location" placeholder="Where is the event?" id="location" class='form-control'>
 				<br>
 			</div>
+			
+			<div class="form-group">
+				<label for="des">Description:</label>
+				<textarea name="description" rows="5" placeholder="Explain more on what are you going to cook?" id="des" class='form-control'></textarea>
+				<br>
+			</div>
+
 
 			<input type="submit" name="submit" value="Create Event" role="button" class="btn btn-warning">
 		</form>
