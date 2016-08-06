@@ -19,7 +19,8 @@ antonio = Person(name = 'Antonio Delegrassi',
 				gender = 'Male',
 				nationality = 'Italian',
 				bio = 'I identify as a chair because why not',
-				rating = 4)
+				rating = 4,
+				pic = "")
 
 loai = Person(name = 'Loai Qubti',
 			  username = 'Loai',
