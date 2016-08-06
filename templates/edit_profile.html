@@ -73,17 +73,17 @@
 
 			<div class="form-group">
 				<div class="row">
-					<div class="col-md-5"></div>
-					<div class="col-md-2">
-						<label for="name">Profile Picture:</label>
+					<div class="col-md-4"></div>
+					<div class="col-md-4">
+						<label for="pic">Profile Picture:</label>
 						{% if user.pic != "" %}
-						<input type="text" name="fullname" value="{{ user.pic }}"  id="pic" class='form-control'>
+						<input type="text" name="pic" value="{{ user.pic }}"  id="pic" class='form-control'>
 						{% else %}
-						<input type="text" name="fullname" placeholder="Enter a picture URL here"  id="pic" class='form-control'>
+						<input type="text" name="pic" placeholder="Enter a picture URL here"  id="pic" class='form-control'>
 						<br>
 						{% endif %}
 					</div>
-					<div class="col-md-5"></div>
+					<div class="col-md-4"></div>
 				</div>
 			</div>
 

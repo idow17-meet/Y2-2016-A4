@@ -63,7 +63,8 @@ def create_account():
 					  gender = request.form['gender'],
 					  nationality = request.form['nationality'],
 					  bio = request.form['bio'],
-					  rating = 5)
+					  rating = 5,
+					  pic = "")
 		dbsession.add(user)
 		dbsession.commit()
 		return redirect(url_for('login'))
@@ -109,7 +110,7 @@ def create_event():
 			dbsession.add(event_attendance)
 			dbsession.commit()
 			## ADD ELSE (EVENT EXISTS) TELL USER
-			
+
 		return redirect(url_for('event_page', event_id = event.id))
 
 
@@ -208,18 +209,22 @@ def edit_profile():
 	user = dbsession.query(Person).filter_by(id = session['user_id']).first()
 	if request.method == 'GET':
 		return render_template('edit_profile.html', user = user)
-	else:
+
+	else:  # User submitted his changes
 		new_name = request.form['fullname']
 		new_password = request.form['password']
 		new_gender = request.form['gender']
 		new_nationality = request.form['nationality']
 		new_bio = request.form['bio']
+		new_pic = request.form['pic']
+
 
 		user.name = new_name
 		user.password = new_password
 		user.gender = new_gender
 		user.nationality = new_nationality
 		user.bio = new_bio
+		user.pic = new_pic
 
 		dbsession.commit()
 		return redirect(url_for('profile', user=user, user_id = user.id))

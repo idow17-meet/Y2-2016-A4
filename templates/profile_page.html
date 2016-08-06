@@ -65,6 +65,10 @@
 	</div>
 <!-- The web app passes a user object to this page and then we use it in the following way: user.<attribute> -->
 	<div class="container">
+		{% if user.pic != "" %} <!-- If user has a picture -->
+		<img src="{{user.pic}}" width="10%" height="10%" class="img-circle" alt="">
+		{% endif %}
+
 		<p><b>Name:</b> {{ user.name }}</h1>
 		<p><b>Gender:</b> {{ user.gender }}</h3>
 		<p><b>Nationality:</b> {{ user.nationality }}</h3>
