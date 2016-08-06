@@ -91,6 +91,35 @@ pizza_event_attendance1 = Attendance(person_id = antonio.id,
 						   event = pizza_event,
 						   chef_flag = True)
 
+shakshuka_event = Event(title = 'Shakshuka workshop',
+    				date = datetime(2016, 6, 12),
+    				description = "Shakshuka learning workshop in the park , don't hesitate to come! ",
+    				location = "SomePark , Nazareth ilit, Israel",
+    				owner_id = ido.id,
+    				owner = ido)
+
+
+shakshuka_event_attendance1 = Attendance(person_id = ido.id,
+						   person = ido,
+						   event_id = shakshuka_event.id,
+						   event = shakshuka_event,
+						   chef_flag = True)
+
+
+dawali_event = Event(title = 'Kusa and Dawali for everyone!',
+    				date = datetime(2016, 9, 4),
+    				description = "Come and learn how to make the famous palestinian dish 'Kusa and Dawali' !",
+    				location = "Jerusalem , Israel",
+    				owner_id = haitham.id,
+    				owner = haitham)
+
+
+shakshuka_event_attendance1 = Attendance(person_id = haitham.id,
+						   person = haitham,
+						   event_id = dawali_event.id,
+						   event = dawali_event,
+						   chef_flag = True)
+
 session.query(Person).delete()
 session.query(Event).delete()
 session.query(Attendance).delete()
@@ -104,4 +133,6 @@ session.add(ido)
 session.add(juan)
 session.add(pizza_event)
 session.add(pizza_event_attendance1)
+session.add(shakshuka_event)
+session.add(shakshuka_event_attendance1)
 session.commit()
