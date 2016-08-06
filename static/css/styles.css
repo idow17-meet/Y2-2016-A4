@@ -10,7 +10,7 @@ body {
 	
 }
 #navbar {
-	margin-bottom: 10%;
+	/*margin-bottom: 10%;*/
 }
 nav#mainNav {
 	padding-bottom: 0px;
@@ -22,8 +22,9 @@ nav#mainNav {
 }
 #page-top {
 	background-image: url('../img/Main_page_pic.jpg');
-	/*background-size: cover;*/
-	background-position: 0% -10%;
+	background-size: initial;
+	/*background-position: 0% -10%;*/
+	margin-top: 0px;
 	}
 .default {
 	background-color: #2C3E50;
@@ -42,4 +43,19 @@ nav#mainNav {
 .default .intro-text .skills {
   font-size: 1.25em;
   font-weight: 300;
+}
+.event {
+	width: 500px;
+	height: 250px;
+	background-color: white;
+	border: 5px solid #2C3E50;
+	border-radius: 10px;
+	float: center;
+	text-align: center;
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+
+}
+.container-fluid {
+
 }
