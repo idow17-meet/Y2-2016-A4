@@ -154,7 +154,7 @@ def edit_event():
 		event.description = new_desc
 
 		dbsession.commit()
-		return redirect(url_for('event_page', event_id = event_id))
+		return redirect(url_for('event_page', event_id = event.id))
 
 
 @app.route('/attend-event/<int:event_id>')
