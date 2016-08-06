@@ -114,7 +114,7 @@ dawali_event = Event(title = 'Kusa and Dawali for everyone!',
     				owner = haitham)
 
 
-shakshuka_event_attendance1 = Attendance(person_id = haitham.id,
+dawali_event_attendance1 = Attendance(person_id = haitham.id,
 						   person = haitham,
 						   event_id = dawali_event.id,
 						   event = dawali_event,
@@ -135,4 +135,6 @@ session.add(pizza_event)
 session.add(pizza_event_attendance1)
 session.add(shakshuka_event)
 session.add(shakshuka_event_attendance1)
+session.add(dawali_event)
+session.add(dawali_event_attendance1)
 session.commit()
