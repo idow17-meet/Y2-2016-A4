@@ -13,8 +13,8 @@
 	<!-- Bootstrap core CSS -->
 	<!--<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">-->
 	<link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
 	<!-- Custom CSS -->
 	 <!-- Theme CSS -->
@@ -22,12 +22,13 @@
 
     <!-- Custom Fonts -->
     <link href="{{ url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='fonts/Montserrat:400,700') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='fonts/Lato:400,700,400italic,700italic') }}" rel="stylesheet" type="text/css">
     
 
 	<!-- Our css file -->
 	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='js/main.js') }}" rel="stylesheet">
 </head>
 
 <body style="margin-bottom: 50px;">
