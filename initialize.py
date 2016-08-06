@@ -80,7 +80,7 @@ nada = Person(name = 'Nada Swedan',
 pizza_event = Event(title = 'Awesome Pizza Party',
     				date = datetime(2016, 8, 10),
     				description = 'Come learn how to make good pizza! Antonio will be there!',
-    				location = "Ehad Haam, Rehavia, Jerusalem, Israel",
+    				location = "David Garden, Nazareth ilit, Israel",
     				owner_id = antonio.id,
     				owner = antonio)
 
@@ -93,8 +93,8 @@ pizza_event_attendance1 = Attendance(person_id = antonio.id,
 
 shakshuka_event = Event(title = 'Shakshuka workshop',
     				date = datetime(2016, 6, 12),
-    				description = "Shakshuka learning workshop in the park , don't hesitate to come! ",
-    				location = "SomePark , Nazareth ilit, Israel",
+    				description = "Shakshuka learning workshop in the park, don't hesitate to come! ",
+    				location = "Sokolow Steet, Rehavia, Jerusalem, Israel",
     				owner_id = ido.id,
     				owner = ido)
 
@@ -109,7 +109,7 @@ shakshuka_event_attendance1 = Attendance(person_id = ido.id,
 dawali_event = Event(title = 'Kusa and Dawali for everyone!',
     				date = datetime(2016, 9, 4),
     				description = "Come and learn how to make the famous palestinian dish 'Kusa and Dawali' !",
-    				location = "Jerusalem , Israel",
+    				location = "IASA Boarding School, Jerusalem, Israel",
     				owner_id = haitham.id,
     				owner = haitham)
 

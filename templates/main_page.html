@@ -66,7 +66,7 @@
 		    </nav>
 		</div>
 
-		<div class="container-fuid" style="margin-bottom: 420px;">
+		<div class="container-fuid" style="margin-bottom: 26.25em;">
 			<br>
 			<br>
 
@@ -74,7 +74,7 @@
 			<form action="{{ url_for('results_page') }}" class='form-horizontal' role="form" name="Search" style="margin-top: 5%">
 				<div class="row">
 					<div class="col-md-3"></div>
-					<div class="col-md-2" style="margin-right: 20px; padding-right: 0px;">
+					<div class="col-md-2" style="margin-right: 1.25em; padding-right: 0px;">
 						<select name="searchtype" class="form-control">
 							<option value="Events">Events</option>
 							<option value="Food">Food</option>
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					<div class="col-md-1" style="margin-left: 1px;">
-						<input type="submit" value="Search" class="btn btn-default" style="margin-left: 10px;" onclick="return CheckEmpty()">
+						<input type="submit" value="Search" class="btn btn-default" style="margin-left: 0.625em;" onclick="return CheckEmpty()">
 					</div>
 					<div class="col-md-3"></div>
 				</div>
@@ -113,12 +113,12 @@
 				<br>
 				<br>
 				<br>
-				<div class="carousel-inner" role="listbox" style="margin-top: 20px;">
+				<div class="carousel-inner" role="listbox" style="margin-top: 1.25em;">
 					<div class="item active">
 						<div class="event" style="margin-left: 30%;">
 							<h4>{{ first_event.title }}</h4>
 							<p>{{ first_event.description }}</p>
-							<a href="{{ url_for('event_page', event_id=first_event.id) }}" role="button" class="btn btn-info" style="position: absolute; bottom: 30px; margin-bottom: 20px; left: 545px;">Read More</a>
+							<a href="{{ url_for('event_page', event_id=first_event.id) }}" role="button" class="btn btn-info" style="position: absolute; bottom: 1.875em; margin-bottom: 1.5em; left: 36.0625em;">Read More</a>
 						</div>
 					</div>
 					{% for event in events %}
@@ -126,7 +126,7 @@
 						<div class="event" style="margin-left: 30%;">
 							<h4>{{ event.title }}</h4>
 							<p>{{ event.description }}</p>
-							<a href="{{ url_for('event_page', event_id=event.id) }}" role="button" class="btn btn-info" style="position: absolute; bottom: 30px; margin-bottom: 20px; left: 545px;">Read More</a>
+							<a href="{{ url_for('event_page', event_id=event.id) }}" role="button" class="btn btn-info" style="position: absolute; bottom: 1.875em; margin-bottom: 1.5em; left: 36.0625em;">Read More</a>
 						</div>
 					</div>
 					{% endfor %}

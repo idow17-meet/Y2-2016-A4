@@ -31,7 +31,7 @@
 	<link href="{{ url_for('static', filename='js/main.js') }}" rel="stylesheet">
 </head>
 
-<body style="margin-bottom: 50px;">
+<body style="margin-bottom: 3.125em;">
 	<div id="navbar" style="margin-bottom: 10%;">
 		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
 	        <div class="container">
@@ -92,16 +92,16 @@
 		{% if event.owner_id != user.id %} <!-- If the current user is not the owner of the event -->
 
 		{% if already_attending == True %} <!-- If the user is already attending the event -->
-		<a href="{{ url_for('unattend_event', event_id = event.id) }}" role="button" class="btn btn-danger" style="margin-right: 10px;">Cancel attendance</a>
+		<a href="{{ url_for('unattend_event', event_id = event.id) }}" role="button" class="btn btn-danger" style="margin-right: 0.625em;">Cancel attendance</a>
 
 		{% else %} <!-- Else the user is not attending -->
-		<a href="{{ url_for('attend_event', event_id = event.id) }}?chef=1" role="button" class="btn btn-warning" style="margin-right: 10px;">Cook in this event</a>
-		<a href="{{ url_for('attend_event', event_id = event.id) }}?chef=0" role="button" class="btn btn-primary" style="margin-right: 10px;">Attend this event</a>
+		<a href="{{ url_for('attend_event', event_id = event.id) }}?chef=1" role="button" class="btn btn-warning" style="margin-right: 0.625em;">Cook in this event</a>
+		<a href="{{ url_for('attend_event', event_id = event.id) }}?chef=0" role="button" class="btn btn-primary" style="margin-right: 0.625em;">Attend this event</a>
 		{% endif %} <!-- End attending if -->
 
 		{% else %}
 
-		<a href="{{ url_for('edit_event') }}" role="button" class="btn btn-success" style="margin-right: 10px;">Edit</a>
+		<a href="{{ url_for('edit_event') }}" role="button" class="btn btn-success" style="margin-right: 0.625em;">Edit</a>
 
 		{% endif %} <!-- End owner if -->
 
