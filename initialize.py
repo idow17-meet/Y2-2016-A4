@@ -20,7 +20,7 @@ antonio = Person(name = 'Antonio Delegrassi',
 				nationality = 'Italian',
 				bio = 'I identify as a chair because why not',
 				rating = 4,
-				pic = "http://www.ikea.com/gb/en/images/products/kaustby-chair__21141_PE106141_S4.JPG")
+				pic = "/static/img/antonio-profile.jpg")
 
 loai = Person(name = 'Loai Qubti',
 			  username = 'Loai',
@@ -29,7 +29,7 @@ loai = Person(name = 'Loai Qubti',
 			  nationality = 'Palestinian',
 			  bio = 'I love potatoes because cucumbers suck.',
 			  rating = 5,
-			  pic = "https://scontent.xx.fbcdn.net/v/t1.0-9/12247079_10205214049643216_7082800669741656003_n.jpg?oh=8953d14625b2e431401f6937c1902945&oe=581CD9E7")
+			  pic = "/static/img/loai-profile.jpg")
 
 haitham = Person(name = 'Haitham Slaibi',
 			  username = 'Haitham123',
@@ -38,7 +38,7 @@ haitham = Person(name = 'Haitham Slaibi',
 			  nationality = 'Palestinian',
 			  bio = 'My name is haitham and i suck at cs.',
 			  rating = 5,
-			  pic = "https://pbs.twimg.com/profile_images/570909929034231809/qDzErwpM.jpeg")
+			  pic = "/static/img/haitham-profile.jpeg")
 
 basel = Person(name = 'Basel Zoabi',
 			  username = 'bslz1',
@@ -47,7 +47,7 @@ basel = Person(name = 'Basel Zoabi',
 			  nationality = 'Palestinian',
 			  bio = 'this is my bio;););)',
 			  rating = 5,
-			  pic = "https://pbs.twimg.com/profile_images/516967068235616256/HkUPCFR-.jpeg")
+			  pic = "/static/img/basel-profile.jpeg")
 
 ido = Person(name = 'Ido Wiernik',
 			  username = 'SpacePotato',
@@ -56,7 +56,7 @@ ido = Person(name = 'Ido Wiernik',
 			  nationality = 'Israeli',
 			  bio = 'I almost died from fake cpr. #true_story',
 			  rating = 5,
-			  pic = "https://scontent.xx.fbcdn.net/v/t1.0-9/12046810_10205305929344845_6544716097861058090_n.jpg?oh=46635abb7720ca60a4a1c044a0ff4048&oe=5827130D")
+			  pic = "/static/img/ido-profile.jpg")
 
 juan = Person(name = 'Juan uno',
 			  username = 'JuanTime',
@@ -65,7 +65,7 @@ juan = Person(name = 'Juan uno',
 			  nationality = 'Mexican',
 			  bio = 'I once got a bike and then it transformed into a Harley sickkk motorcycle !',
 			  rating = 5,
-			  pic = "http://media1.fdncms.com/chicago/imager/juan-rangel/u/original/8820314/1361207745-uno-cst-xxxxxx_6_25940347.jpg")
+			  pic = "/static/img/juan-profile.jpg")
 
 nada = Person(name = 'Nada Swedan',
 			  username = 'nadaswedan',
@@ -74,7 +74,7 @@ nada = Person(name = 'Nada Swedan',
 			  nationality = 'Palestinian',
 			  bio = 'I am the blessing brought to you in this website by myself.',
 			  rating = 5,
-			  pic = "https://scontent.xx.fbcdn.net/t31.0-8/s960x960/10295451_1419527308062905_5297607489767182360_o.jpg")
+			  pic = "/static/img/nada-profile.jpg")
 
 
 pizza_event = Event(title = 'Awesome Pizza Party',
@@ -100,10 +100,10 @@ shakshuka_event = Event(title = 'Shakshuka workshop',
 
 
 shakshuka_event_attendance1 = Attendance(person_id = ido.id,
-						   person = ido,
-						   event_id = shakshuka_event.id,
-						   event = shakshuka_event,
-						   chef_flag = True)
+									     person = ido,
+									     event_id = shakshuka_event.id,
+									     event = shakshuka_event,
+									     chef_flag = True)
 
 
 dawali_event = Event(title = 'Kusa and Dawali for everyone!',
