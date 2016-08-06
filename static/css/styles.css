@@ -22,7 +22,7 @@ nav#mainNav {
 }
 #page-top {
 	background-image: url('../img/Main_page_pic.jpg');
-	background-size: cover;
+	/*background-size: cover;*/
 	background-position: 0% -10%;
 	}
 .default {

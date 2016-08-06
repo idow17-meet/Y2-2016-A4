@@ -27,7 +27,8 @@ loai = Person(name = 'Loai Qubti',
 			  gender = 'Male',
 			  nationality = 'Palestinian',
 			  bio = 'I love potatoes because cucumbers suck.',
-			  rating = 5)
+			  rating = 5,
+			  pic = "")
 
 
 pizza_event = Event(title = 'Awesome Pizza Party',
