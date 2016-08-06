@@ -22,16 +22,17 @@ nav#mainNav {
 }
 #page-top {
 	background-image: url('../img/Main_page_pic.jpg');
-	background-size: initial;
+	/*background-size: initial;*/
 	/*background-position: 0% -10%;*/
 	margin-top: 0px;
+	background-repeat: no-repeat;
 	}
 .default {
 	background-color: #2C3E50;
 	color: white;
 }
 .default .container {
-  padding-bottom: 50px;
+  padding-bottom: 3.125em;
 }
 .default .intro-text .name {
   display: block;
@@ -45,11 +46,11 @@ nav#mainNav {
   font-weight: 300;
 }
 .event {
-	width: 500px;
-	height: 250px;
+	width: 31.25em;
+	height: 15.625em;
 	background-color: white;
-	border: 5px solid #2C3E50;
-	border-radius: 10px;
+	border: 0.3125em solid #2C3E50;
+	border-radius: 0.625em;
 	float: center;
 	text-align: center;
 	padding-bottom: 0px;

@@ -152,7 +152,9 @@
 			</div>
 
 			<input type="submit" value="Submit" class="btn btn-info" role="button">
+
 		</form>
+		<a href="{{ url_for('profile', user_id=user.id) }}" role="button" class="btn btn-default" style="margin-top: 0.5em; margin-bottom: 2em;">Cancel</a>
 	</div>
 
 </body>

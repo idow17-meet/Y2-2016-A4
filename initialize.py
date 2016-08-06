@@ -31,6 +31,24 @@ loai = Person(name = 'Loai Qubti',
 			  rating = 5,
 			  pic = "/static/img/loai-profile.jpg")
 
+diala = Person(name = 'Diala Bayatneh',
+			  username = 'Diala',
+			  password = 'yoyoyo',
+			  gender = 'Female',
+			  nationality = 'Palestinian',
+			  bio = 'I love cooking / eating dawali!',
+			  rating = 5,
+			  pic = "/static/img/diala-profile.jpg")
+
+ido = Person(name = 'Ido Wiernik',
+			  username = 'SpacePotato',
+			  password = 'yoyoyo',
+			  gender = 'Male',
+			  nationality = 'Israeli',
+			  bio = 'I enjoy making shakshuka and joking around',
+			  rating = 5,
+			  pic = "/static/img/ido-profile.jpg")
+
 haitham = Person(name = 'Haitham Slaibi',
 			  username = 'Haitham123',
 			  password = 'yoyoyo',
@@ -49,14 +67,6 @@ basel = Person(name = 'Basel Zoabi',
 			  rating = 5,
 			  pic = "/static/img/basel-profile.jpeg")
 
-ido = Person(name = 'Ido Wiernik',
-			  username = 'SpacePotato',
-			  password = 'baselisgood',
-			  gender = 'Male',
-			  nationality = 'Israeli',
-			  bio = 'I almost died from fake cpr. #true_story',
-			  rating = 5,
-			  pic = "/static/img/ido-profile.jpg")
 
 juan = Person(name = 'Juan uno',
 			  username = 'JuanTime',
@@ -126,10 +136,11 @@ session.query(Attendance).delete()
 
 session.add(antonio)
 session.add(loai)
+session.add(diala)
+session.add(ido)
 session.add(nada)
 session.add(haitham)
 session.add(basel)
-session.add(ido)
 session.add(juan)
 session.add(pizza_event)
 session.add(pizza_event_attendance1)
