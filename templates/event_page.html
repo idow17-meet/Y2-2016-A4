@@ -74,20 +74,36 @@
 		<br>
 		<p>{{ event.description }}</p>
 		<p><b>Location:</b> {{ event.location }}</p>
-		<!-- ADD CHEF LOOP. IDOOOOOOOOOOO SAID HE WOULD TAKE CARE OF IT , THANKYOU IDO ;) -->
+		<!-- Table of people -->
 
-		{% for attendance in attendance_list %}
-		{% if attendance.chef_flag == True %}
-		<h4>Chef: <a href="{{ url_for('profile', user_id=attendance.person_id) }}">{{ attendance.person.name }}</a></h4>
-		<h4>Nationality: {{ attendance.person.nationality }}</h4>
 
-		{% else %}
-		<h4>Attending: <a href="{{ url_for('profile', user_id=attendance.person_id) }}">{{ attendance.person.name }}</a></h4>
-		<h4>Nationality: {{ attendance.person.nationality }}</h4>
-		{% endif %}
-		{% endfor %}
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Nationality</th>
+					<th>Role</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for attendance in attendance_list %}
+				<tr>
+					<td><h4><a href="{{ url_for('profile', user_id=attendance.person_id) }}">{{ attendance.person.name }}</a></h4></td>
+					<td><h4>{{ attendance.person.nationality }}</h4></td>
+					{% if attendance.chef_flag == True %}
+					<td><h4>Chef</h4></td>
 
-		<br>
+					{% else %}
+					<td><h4>Attending</h4></td>
+					{% endif %}
+					{% endfor %}
+				</tr>
+					<br>
+
+			</tbody>
+		</table>
+
+		<!-- End of table -->
 
 		{% if event.owner_id != user.id %} <!-- If the current user is not the owner of the event -->
 
