@@ -29,7 +29,8 @@ nav#mainNav {
 	}
 .default {
 	background-color: #2C3E50;
-	color: white;
+	background-image: url("/static/img/bg.jpg");
+	color: black;
 }
 .default .container {
   padding-bottom: 3.125em;
@@ -57,6 +58,7 @@ nav#mainNav {
 	margin-bottom: 0px;
 
 }
+
 th {
 	text-align: center;
 }
