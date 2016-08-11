@@ -30,8 +30,8 @@
 	<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
 	<link href="{{ url_for('static', filename='js/main.js') }}" rel="stylesheet">
 </head>
-<body>
-	<div id="navbar" style="margin-bottom: 10%;">
+<body background="/static/img/bg.jpg">
+	<div id="navbar" style="margin-bottom: 7%;">
 		<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom affix-top">
 	        <div class="container">
 	            <!-- Brand and toggle get grouped for better mobile display -->
@@ -67,8 +67,9 @@
 <!-- The web app passes a user object to this page and then we use it in the following way: user.<attribute> -->
 	<div class="container">
 		{% if user.pic != "" %} <!-- If user has a picture -->
-		<img src="{{user.pic}}" width="10%" height="10%" class="img-circle" alt="">
+		<img src="{{user.pic}}" width="11%" height="11%" class="img-circle" alt="">
 		{% endif %}
+		<br><br>
 
 		<p><b>Name:</b> {{ user.name }}</h1>
 		<p><b>Gender:</b> {{ user.gender }}</h3>

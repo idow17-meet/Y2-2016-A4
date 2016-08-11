@@ -84,7 +84,7 @@ nada = Person(name = 'Nada Swedan',
 			  nationality = 'Palestinian',
 			  bio = 'I am the blessing brought to you in this website by myself.',
 			  rating = 5,
-			  pic = "/static/img/nada-profile.jpg")
+			  pic = "/static/img/nada.png")
 
 
 pizza_event = Event(title = 'Awesome Pizza Party',

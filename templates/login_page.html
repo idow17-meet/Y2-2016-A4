@@ -31,13 +31,17 @@
 	
 </head>
 
-<body>
+<body background="/static/img/bg.jpg">
 	<div class="container">
 		<!-- <h1>TradEat</h1> -->
 		<img src="{{ url_for('static', filename='img/TrEat.png') }}" id="login-img">
 
+		<h4 style="font-family: 'Montserrat',sans-serif;">Let a native show you</h4>
+		<h4 style="font-family: 'Montserrat',sans-serif;"">how to cook.</h4>
+		<br>
+
 		{% if error == True %}
-		<h3 style="color: red">Wrong username or password</h3>
+		<h4 style="color: red">Wrong username or password</h4>
 		{% endif %}
 
 		<form action="{{ url_for('login') }}" method="post" role="form">
