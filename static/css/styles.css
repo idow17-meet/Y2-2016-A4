@@ -25,7 +25,9 @@ nav#mainNav {
 	/*background-size: initial;*/
 	/*background-position: 0% -10%;*/
 	margin-top: 0px;
+	background-size: contain;
 	background-repeat: no-repeat;
+	background-color: #18BC9C;
 	}
 .default {
 	background-color: #2C3E50;
