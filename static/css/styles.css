@@ -49,8 +49,8 @@ nav#mainNav {
   font-weight: 300;
 }
 .event {
-	width: 31.25em;
-	height: 15.625em;
+	width: 90%;
+	height: 90%;
 	background-color: white;
 	border: 0.3125em solid #2C3E50;
 	border-radius: 0.625em;
